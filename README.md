@@ -12,7 +12,6 @@
 - [ぺたかくし](https://petakakushi-app.r524.workers.dev/)
 - [524のお友達メーカー](https://friends-of-524.pages.dev/)
 - [ぴた壁](https://pitakabe-wallpaper-maker.r524.workers.dev/)
-- [ぽこちゃん](https://hamster-page.vercel.app/)
 
 ## Run locally
 
