@@ -279,3 +279,203 @@ a:focus-visible {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+/* Minimal visual system: content first, decoration second. */
+:root {
+  --navy: #1d2a33;
+  --navy-soft: #5e6b73;
+  --cyan: #4b9eae;
+  --cyan-light: #d9eef1;
+  --yellow: #eac64d;
+  --yellow-soft: #f7edbb;
+  --orange: #d86f43;
+  --cream: #f5f7f7;
+  --paper: #ffffff;
+  --ink: #1d2a33;
+  --line: #d9e0e3;
+  --shadow: none;
+}
+
+body { background: var(--paper); color: var(--ink); }
+.page-shell { background: var(--paper); overflow: hidden; }
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  max-width: 1240px;
+  padding: 22px 38px;
+}
+.brand { gap: 10px; }
+.brand-mark {
+  background: var(--navy);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  color: var(--paper);
+  font-size: 12px;
+  height: 32px;
+  letter-spacing: 0;
+  padding: 0 9px;
+  width: auto;
+}
+.brand-name { color: var(--navy); font-size: 13px; }
+.brand-name em { color: var(--navy-soft); font-size: 9px; letter-spacing: 0.08em; }
+.site-nav { gap: 24px; }
+.site-nav a { color: var(--navy-soft); font-size: 12px; }
+.site-nav .nav-x,
+.site-nav .nav-github {
+  background: transparent;
+  border-bottom: 1px solid var(--navy-soft);
+  border-radius: 0;
+  color: var(--navy);
+  padding: 0 0 3px;
+}
+.site-nav .nav-x { border-color: var(--orange); }
+
+.identity-strip {
+  background: var(--cream);
+  border-left: 3px solid var(--orange);
+  color: var(--navy);
+  gap: 12px;
+  margin-top: 28px;
+  padding: 11px 15px;
+}
+.identity-strip-kicker { color: var(--orange); font-size: 9px; }
+.identity-strip strong { color: var(--navy); font-size: 16px; }
+.identity-strip-divider { color: var(--line); }
+.identity-strip a { color: var(--navy); font-size: 11px; }
+.identity-strip-note { color: var(--navy-soft); font-size: 9px; }
+
+.hero {
+  gap: 72px;
+  min-height: 590px;
+  padding: 88px 38px 100px;
+}
+.eyebrow { color: var(--orange); font-size: 10px; letter-spacing: 0.12em; margin-bottom: 18px; }
+.eyebrow-dot { height: 6px; width: 6px; }
+.hero h1 {
+  color: var(--navy);
+  font-size: clamp(3.8rem, 7vw, 6.6rem);
+  letter-spacing: -0.08em;
+  line-height: 0.88;
+}
+.hero h1 span { color: var(--cyan); }
+.hero-lead { color: var(--navy-soft); font-size: 16px; line-height: 1.8; margin: 29px 0 27px; }
+.hero-cta {
+  background: var(--navy);
+  border: 0;
+  border-radius: 4px;
+  box-shadow: none;
+  color: var(--paper);
+  padding: 13px 16px;
+}
+.hero-cta:hover { box-shadow: none; transform: translateY(-2px); }
+.hero-social { color: var(--navy); font-size: 12px; }
+.hero-social small { color: var(--orange); }
+.hero-social > span:last-child { color: var(--orange); }
+.hero-art { min-height: 420px; }
+.art-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: none;
+  height: 410px;
+  left: 50%;
+  top: 3px;
+  transform: translateX(-50%);
+  width: 360px;
+}
+.art-card::after { display: none; }
+
+.works-section {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  color: var(--navy);
+  padding-bottom: 112px;
+  padding-top: 92px;
+}
+.section-heading .eyebrow { color: var(--orange); }
+.section-heading .eyebrow-dot { background: var(--orange); }
+.section-heading h2 { color: var(--navy); }
+.section-count { color: var(--navy); font-size: 28px; }
+.section-count span { color: var(--navy-soft); }
+.works-grid { gap: 16px; }
+.work-card {
+  background: var(--paper) !important;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: none;
+  color: var(--navy);
+  min-height: 280px;
+  padding: 22px 23px 24px;
+}
+.work-card::before {
+  background: var(--card-accent);
+  content: '';
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.work-card:hover { box-shadow: 0 8px 20px rgba(29, 42, 51, 0.08); transform: translateY(-2px); }
+.work-card-featured { grid-column: 1 / -1; grid-row: auto; min-height: 380px; }
+.work-card-featured .card-content { margin-bottom: auto; margin-top: auto; }
+.card-cyan { --card-accent: var(--cyan); }
+.card-yellow { --card-accent: var(--yellow); }
+.card-orange { --card-accent: var(--orange); }
+.card-cream { --card-accent: var(--navy-soft); }
+.card-topline { color: var(--navy-soft); }
+.card-tag { border-color: var(--line); }
+.card-content { max-width: 360px; }
+.card-kicker { color: var(--navy-soft); }
+.work-card h3 { color: var(--navy); font-size: clamp(2.2rem, 4vw, 3.4rem); }
+.card-description { color: var(--navy-soft); }
+.card-arrow {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--navy);
+  height: auto;
+  right: 22px;
+  top: 20px;
+  width: auto;
+}
+.work-card:hover .card-arrow { transform: translate(2px, -2px); }
+
+.about-section {
+  gap: 45px;
+  grid-template-columns: 0.3fr 1fr;
+  min-height: 430px;
+  padding: 94px 38px;
+}
+.about-label { color: var(--orange); transform: none; }
+.about-label span { color: var(--navy); }
+.about-copy h2 { color: var(--navy); font-size: clamp(2.8rem, 5vw, 4.8rem); }
+.about-copy h2 span { color: var(--cyan); }
+.about-copy > p:last-child { color: var(--navy-soft); font-size: 15px; }
+
+.site-footer {
+  background: var(--paper);
+  border-top: 1px solid var(--line);
+  color: var(--navy);
+}
+.footer-brand span { color: var(--orange); }
+.site-footer .footer-social .x-symbol { color: var(--orange); }
+.site-footer a { border-color: var(--navy-soft); }
+
+@media (max-width: 760px) {
+  .site-header { padding: 18px 20px; }
+  .site-nav { gap: 12px; }
+  .identity-strip { margin: 20px; }
+  .hero { padding: 62px 20px 76px; }
+  .hero h1 { font-size: clamp(3.5rem, 17vw, 5.5rem); }
+  .hero-art { min-height: 350px; }
+  .art-card { height: 340px; width: min(100%, 320px); }
+  .works-section { padding: 72px 20px 82px; }
+  .work-card, .work-card-featured { min-height: 330px; }
+  .work-card-featured { min-height: 430px; }
+  .about-section { display: block; padding: 76px 20px 82px; }
+  .about-label { margin-bottom: 32px; }
+  .site-footer { padding: 25px 20px 30px; }
+}
