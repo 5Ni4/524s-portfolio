@@ -617,11 +617,8 @@ body { background: var(--paper); color: var(--ink); }
   grid-template-columns: repeat(2, minmax(0, 180px));
 }
 .sticker-ogp {
-  background: var(--paper);
-  border: 1px solid var(--line);
   display: flex;
   max-width: 180px;
-  padding: 8px;
   position: relative;
 }
 .sticker-ogp::before {
