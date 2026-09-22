@@ -1,6 +1,6 @@
-# 524s portfolio
+# R-524 / 524s portfolio
 
-524の遊び心から生まれた、ゲームと小さな道具のポートフォリオ。
+R-524（X: [@R5ni4](https://x.com/R5ni4)）がつくる、ゲームと小さな道具のポートフォリオ。
 
 ## Published
 
