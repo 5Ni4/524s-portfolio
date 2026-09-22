@@ -621,15 +621,6 @@ body { background: var(--paper); color: var(--ink); }
   max-width: 180px;
   position: relative;
 }
-.sticker-ogp::before {
-  background: var(--line);
-  content: "";
-  height: 24px;
-  left: 50%;
-  position: absolute;
-  top: -25px;
-  width: 1px;
-}
 .sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
 .card-arrow {
   align-self: start;
