@@ -589,6 +589,16 @@ body { background: var(--paper); color: var(--ink); }
 }
 .work-card:hover .card-arrow { transform: none; }
 
+/* Keep Japanese headings readable when they wrap. */
+.section-heading h2,
+.work-card h3,
+.about-copy h2 {
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.brand-name { line-height: 1.1; }
+
 .about-section {
   border-top: 1px solid var(--line);
   gap: 40px;
