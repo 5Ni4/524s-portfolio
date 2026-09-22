@@ -596,6 +596,35 @@ body { background: var(--paper); color: var(--ink); }
 .card-kicker { color: var(--navy-soft); margin-bottom: 8px; }
 .work-card h3 { font-size: 3rem; }
 .card-description { color: var(--navy-soft); margin-top: 15px; max-width: 500px; }
+.sticker-ogps {
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 240px));
+  margin-left: 102px;
+  padding: 24px 0 30px;
+}
+.sticker-ogp {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 240px;
+  padding: 10px;
+  position: relative;
+}
+.sticker-ogp::before {
+  background: var(--line);
+  content: "";
+  height: 24px;
+  left: 50%;
+  position: absolute;
+  top: -25px;
+  width: 1px;
+}
+.sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
+.sticker-ogp span { color: var(--navy-soft); font-size: 12px; line-height: 1.5; }
 .card-arrow {
   align-self: start;
   background: transparent;
@@ -656,6 +685,11 @@ body { background: var(--paper); color: var(--ink); }
   }
   .work-card h3 { font-size: 2.25rem; }
   .card-description { font-size: 13px; }
+  .sticker-ogps {
+    grid-template-columns: minmax(0, 1fr);
+    margin-left: 62px;
+  }
+  .sticker-ogp { max-width: 240px; }
   .about-section { display: grid; gap: 22px; grid-template-columns: 1fr; padding-bottom: 75px; padding-top: 76px; }
   .about-copy h2,
   .about-copy h2 span { font-size: 3rem; }
