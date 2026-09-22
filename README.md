@@ -1,6 +1,6 @@
-# R-524 / 524s portfolio
+# R-524 / portfolio
 
-R-524（X: [@R5ni4](https://x.com/R5ni4)）がつくる、ゲームと小さな道具のポートフォリオ。
+R-524 / X: [@R5ni4](https://x.com/R5ni4)
 
 ## Published
 
