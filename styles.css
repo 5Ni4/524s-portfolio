@@ -558,12 +558,13 @@ body { background: var(--paper); color: var(--ink); }
   gap: 24px;
   grid-column: auto;
   grid-template-columns: 78px minmax(0, 1fr) auto;
+  height: 190px;
   min-height: 0;
   padding: 30px 0;
 }
 .work-card::before { display: none; }
 .work-card:hover { background: #fafbfb !important; box-shadow: none; transform: none; }
-.work-card-featured { min-height: 300px; padding-bottom: 42px; padding-top: 42px; }
+.work-card-featured { padding-bottom: 30px; padding-top: 30px; }
 .work-card-featured .card-content { margin: 0; }
 .card-cyan,
 .card-yellow,
@@ -627,11 +628,11 @@ body { background: var(--paper); color: var(--ink); }
   .work-card,
   .work-card-featured {
     gap: 14px;
+    height: 160px;
     grid-template-columns: 48px minmax(0, 1fr) auto;
     padding-bottom: 25px;
     padding-top: 25px;
   }
-  .work-card-featured { min-height: 250px; }
   .work-card h3 { font-size: 2rem; }
   .card-description { font-size: 13px; }
   .about-section { display: grid; gap: 22px; grid-template-columns: 1fr; padding-bottom: 75px; padding-top: 76px; }
