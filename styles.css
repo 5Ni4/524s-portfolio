@@ -512,6 +512,13 @@ body { background: var(--paper); color: var(--ink); }
 .hero h1 { font-size: 4.5rem; line-height: 1; }
 .hero h1 span { color: inherit; }
 .hero-lead { margin-bottom: 26px; margin-top: 25px; }
+.hero-note {
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: -8px 0 28px;
+  max-width: 34em;
+}
 .hero-actions { gap: 20px; }
 .hero-cta {
   background: transparent;
@@ -621,6 +628,7 @@ body { background: var(--paper); color: var(--ink); }
   .site-header { padding-bottom: 18px; padding-top: 18px; }
   .hero { min-height: 0; padding-bottom: 70px; padding-top: 58px; }
   .hero h1 { font-size: 3.5rem; }
+  .hero-note { font-size: 14px; margin-bottom: 25px; }
   .hero-art { min-height: 320px; }
   .art-card { height: 300px; width: 280px; }
   .works-section { padding-bottom: 74px; padding-top: 68px; }
