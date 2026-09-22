@@ -519,6 +519,11 @@ body { background: var(--paper); color: var(--ink); }
   margin: -8px 0 28px;
   max-width: 34em;
 }
+.hero-note a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
 .hero-actions { gap: 20px; }
 .hero-cta {
   background: transparent;
@@ -551,7 +556,7 @@ body { background: var(--paper); color: var(--ink); }
 .works-groups {
   display: grid;
   gap: 64px;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-columns: 1fr;
 }
 .works-group { min-width: 0; }
 .section-heading { border-bottom: 1px solid var(--line); margin-bottom: 0; padding-bottom: 18px; }
