@@ -571,12 +571,12 @@ body { background: var(--paper); color: var(--ink); }
 .card-orange,
 .card-cream { --card-accent: transparent; }
 .card-topline { align-items: flex-start; display: flex; flex-direction: column; gap: 9px; grid-column: 1; justify-content: flex-start; }
-.card-number { color: var(--navy-soft); font-size: 12px; }
-.card-tag { border: 0; color: var(--navy-soft); font-size: 9px; letter-spacing: 0.1em; padding: 0; }
+.card-number { color: var(--navy-soft); font-size: 14px; }
+.card-tag { border: 0; color: var(--navy-soft); font-size: 10px; letter-spacing: 0.1em; padding: 0; }
 .card-content,
 .work-card-featured .card-content { align-self: center; grid-column: 2; margin: 0; max-width: 600px; }
 .card-kicker { color: var(--navy-soft); margin-bottom: 8px; }
-.work-card h3 { font-size: 2.5rem; }
+.work-card h3 { font-size: 3rem; }
 .card-description { color: var(--navy-soft); margin-top: 15px; max-width: 500px; }
 .card-arrow {
   align-self: start;
@@ -633,7 +633,7 @@ body { background: var(--paper); color: var(--ink); }
     padding-bottom: 25px;
     padding-top: 25px;
   }
-  .work-card h3 { font-size: 2rem; }
+  .work-card h3 { font-size: 2.25rem; }
   .card-description { font-size: 13px; }
   .about-section { display: grid; gap: 22px; grid-template-columns: 1fr; padding-bottom: 75px; padding-top: 76px; }
   .about-copy h2,
