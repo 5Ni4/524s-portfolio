@@ -664,3 +664,25 @@ body { background: var(--paper); color: var(--ink); }
   .about-label { margin-bottom: 0; }
   .site-footer { gap: 13px; }
 }
+
+.brand-icon {
+  display: block;
+  flex: 0 0 34px;
+  height: 34px;
+  overflow: hidden;
+  position: relative;
+  width: 34px;
+}
+.brand-icon img {
+  height: 49px;
+  left: -14px;
+  max-width: none;
+  position: absolute;
+  top: -7px;
+  width: 62px;
+}
+
+@media (max-width: 760px) {
+  .brand-icon { flex-basis: 30px; height: 30px; width: 30px; }
+  .brand-icon img { height: 43.5px; left: -12.5px; top: -6.75px; width: 55px; }
+}
