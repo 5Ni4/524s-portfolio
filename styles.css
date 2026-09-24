@@ -222,7 +222,6 @@ a:focus-visible {
   .brand-name em { font-size: 8px; }
   .site-nav { gap: 9px; }
   .site-nav a { font-size: 11px; }
-  .site-nav a:nth-child(2) { display: none; }
   .site-nav .nav-x { padding: 8px 10px; }
   .site-nav .nav-github { display: none; }
   .identity-strip { gap: 9px; margin: 0 20px; padding: 12px 14px; }
@@ -633,6 +632,8 @@ body { background: var(--paper); color: var(--ink); }
 
 @media (max-width: 760px) {
   .site-header { padding-bottom: 18px; padding-top: 18px; }
+  .site-nav { gap: 10px; }
+  .site-nav a { font-size: 11px; }
   .hero { min-height: 0; padding-bottom: 70px; padding-top: 58px; }
   .hero h1 { font-size: 3.5rem; }
   .hero-note { font-size: 14px; margin-bottom: 25px; }
