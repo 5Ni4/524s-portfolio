@@ -454,9 +454,27 @@ body { background: var(--paper); color: var(--ink); }
   --line: #e1e5e7;
 }
 
-.site-header { padding-bottom: 20px; padding-top: 20px; }
-.brand-mark { background: transparent; border: 1px solid var(--navy); border-radius: 0; color: var(--navy); }
+.site-header { border-bottom: 0; padding-bottom: 16px; padding-top: 24px; }
+.brand-mark {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: var(--navy);
+  font-size: 13px;
+  height: auto;
+  letter-spacing: 0.04em;
+  padding: 0;
+  width: auto;
+}
 .brand-name em { color: var(--navy-soft); }
+.site-nav { gap: 22px; }
+.site-nav a {
+  border-bottom: 0;
+  color: var(--navy-soft);
+  font-size: 12px;
+  padding: 0;
+}
+.site-nav a:hover { color: var(--navy); }
 .site-nav .nav-x,
 .site-nav .nav-github { border-bottom: 0; color: var(--navy); }
 
