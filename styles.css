@@ -483,7 +483,7 @@ body { background: var(--paper); color: var(--ink); }
   text-underline-offset: 3px;
 }
 .hero-actions { gap: 20px; }
-.hero-social { border-bottom: 1px solid var(--line); font-size: 13px; padding-bottom: 4px; }
+.hero-social { border-bottom: 1px solid var(--navy-soft); font-size: 13px; padding-bottom: 4px; }
 .hero-social small,
 .hero-social > span:last-child { color: inherit; }
 .hero-art { min-height: 360px; }
