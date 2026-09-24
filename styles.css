@@ -507,8 +507,16 @@ body { background: var(--paper); color: var(--ink); }
   grid-template-columns: 1fr;
 }
 .works-group { min-width: 0; }
-.section-heading { border-bottom: 1px solid var(--line); margin-bottom: 0; padding-bottom: 18px; }
-.section-heading h2 { font-size: 2.5rem; font-weight: 600; }
+.section-heading { margin-bottom: 0; padding-bottom: 18px; }
+.section-heading h2 {
+  border: 1px solid var(--navy);
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  padding: 14px 16px;
+}
 .section-count { font-size: 20px; }
 .section-count span { font-size: 10px; }
 .works-grid { display: block; }
@@ -606,7 +614,7 @@ body { background: var(--paper); color: var(--ink); }
   .art-card { height: 300px; width: 280px; }
   .works-section { padding-bottom: 74px; padding-top: 68px; }
   .works-groups { gap: 70px; grid-template-columns: 1fr; }
-  .section-heading h2 { font-size: 2rem; }
+  .section-heading h2 { font-size: 18px; }
   .work-card,
   .work-card-featured {
     gap: 14px;
