@@ -139,24 +139,6 @@ a:focus-visible {
 
 .hero-actions { align-items: center; display: flex; flex-wrap: wrap; gap: 16px; }
 
-.hero-cta {
-  align-items: center;
-  background: var(--orange);
-  border: 2px solid var(--navy);
-  border-radius: 999px;
-  box-shadow: 4px 4px 0 var(--navy);
-  color: var(--paper);
-  display: inline-flex;
-  font-size: 14px;
-  font-weight: 700;
-  gap: 25px;
-  padding: 14px 18px 14px 22px;
-  transition: transform 160ms ease, box-shadow 160ms ease;
-}
-
-.hero-cta span { font-size: 20px; line-height: 0.5; }
-.hero-cta:hover { box-shadow: 2px 2px 0 var(--navy); transform: translate(2px, 2px); }
-
 .hero-social { align-items: center; color: var(--navy); display: inline-flex; font-family: var(--mono); font-size: 13px; font-weight: 500; gap: 9px; }
 .hero-social > span:nth-child(2) { display: flex; flex-direction: column; line-height: 1.05; }
 .hero-social small { color: var(--orange); font-size: 8px; letter-spacing: 0.08em; margin-bottom: 4px; }
@@ -360,15 +342,6 @@ body { background: var(--paper); color: var(--ink); }
 }
 .hero h1 span { color: var(--cyan); }
 .hero-lead { color: var(--navy-soft); font-size: 16px; line-height: 1.8; margin: 29px 0 27px; }
-.hero-cta {
-  background: var(--navy);
-  border: 0;
-  border-radius: 4px;
-  box-shadow: none;
-  color: var(--paper);
-  padding: 13px 16px;
-}
-.hero-cta:hover { box-shadow: none; transform: translateY(-2px); }
 .hero-social { color: var(--navy); font-size: 12px; }
 .hero-social small { color: var(--orange); }
 .hero-social > span:last-child { color: var(--orange); }
@@ -525,16 +498,6 @@ body { background: var(--paper); color: var(--ink); }
   text-underline-offset: 3px;
 }
 .hero-actions { gap: 20px; }
-.hero-cta {
-  background: transparent;
-  border-bottom: 1px solid var(--navy);
-  border-radius: 0;
-  color: var(--navy);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 0 0 4px;
-}
-.hero-cta:hover { color: var(--navy-soft); transform: none; }
 .hero-social { border-bottom: 1px solid var(--line); font-size: 13px; padding-bottom: 4px; }
 .hero-social small,
 .hero-social > span:last-child { color: inherit; }
