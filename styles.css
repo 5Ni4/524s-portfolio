@@ -516,7 +516,7 @@ body { background: var(--paper); color: var(--ink); }
   color: var(--navy);
   font-size: 15px;
   line-height: 1.7;
-  margin: -8px 0 28px;
+  margin: 25px 0 28px;
   max-width: 34em;
 }
 .hero-note a {
