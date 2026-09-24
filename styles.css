@@ -477,7 +477,6 @@ body { background: var(--paper); color: var(--ink); }
 .eyebrow { color: var(--navy-soft); margin-bottom: 15px; }
 .eyebrow-dot { display: none; }
 .hero {
-  border-bottom: 1px solid var(--line);
   min-height: 550px;
   padding-bottom: 92px;
   padding-top: 76px;
