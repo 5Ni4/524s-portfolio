@@ -4,7 +4,7 @@ R-524 / X: [@R5ni4](https://x.com/R5ni4)
 
 ## Published
 
-- [524s portfolio](https://five24s-portfolio.r524.workers.dev/)
+- [524s portfolio](https://portfolio.r524.workers.dev/)
 
 ## Works
 
