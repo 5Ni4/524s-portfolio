@@ -576,12 +576,11 @@ body { background: var(--paper); color: var(--ink); }
   grid-template-rows: auto auto;
   min-height: 0;
 }
-.line-sticker-card .card-content { grid-row: 1; }
-.line-sticker-card .line-sticker-info {
-  align-self: stretch;
-  max-width: none;
-  text-decoration: none;
-  width: 100%;
+.line-sticker-card .card-content { grid-row: 1; pointer-events: none; }
+.line-sticker-card .sticker-list-overlay {
+  inset: 0;
+  position: absolute;
+  z-index: 1;
 }
 .line-sticker-card .sticker-ogps {
   border-bottom: 0;
@@ -589,6 +588,9 @@ body { background: var(--paper); color: var(--ink); }
   grid-row: 2;
   margin-left: 0;
   padding: 24px 0 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
 }
 .sticker-ogps {
   display: grid;
@@ -598,6 +600,7 @@ body { background: var(--paper); color: var(--ink); }
 .sticker-ogp {
   display: flex;
   max-width: 180px;
+  pointer-events: auto;
   position: relative;
 }
 .sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
