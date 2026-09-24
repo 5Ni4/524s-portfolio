@@ -183,8 +183,6 @@ a:focus-visible {
 .card-kicker { font-family: var(--mono); font-size: 11px; margin: 0 0 11px; opacity: 0.75; }
 .work-card h3 { font-size: clamp(2.4rem, 4.5vw, 4rem); letter-spacing: -0.1em; line-height: 0.95; margin: 0; }
 .card-description { font-size: 14px; line-height: 1.7; margin: 20px 0 0; max-width: 285px; }
-.card-arrow { align-items: center; background: var(--paper); border: 2px solid var(--navy); border-radius: 50%; color: var(--navy); display: flex; font-size: 23px; height: 48px; justify-content: center; position: absolute; right: 24px; top: 23px; transition: transform 160ms ease; width: 48px; z-index: 3; }
-.work-card:hover .card-arrow { transform: rotate(8deg) scale(1.08); }
 .card-scribble { bottom: 69px; color: rgba(247, 245, 233, 0.43); font-family: var(--mono); font-size: 34px; font-weight: 500; line-height: 0.8; position: absolute; right: 35px; text-align: right; transform: rotate(-11deg); }
 .card-sticker { background: var(--paper); border: 2px solid var(--navy); border-radius: 50%; bottom: 33px; color: var(--orange); font-size: 25px; font-weight: 800; padding: 18px 12px; position: absolute; right: 38px; transform: rotate(13deg); }
 .card-faces { bottom: 33px; display: flex; gap: 5px; position: absolute; right: 28px; transform: rotate(-7deg); }
@@ -404,18 +402,6 @@ body { background: var(--paper); color: var(--ink); }
 .card-kicker { color: var(--navy-soft); }
 .work-card h3 { color: var(--navy); font-size: clamp(2.2rem, 4vw, 3.4rem); }
 .card-description { color: var(--navy-soft); }
-.card-arrow {
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  color: var(--navy);
-  height: auto;
-  right: 22px;
-  top: 20px;
-  width: auto;
-}
-.work-card:hover .card-arrow { transform: translate(2px, -2px); }
-
 .about-section {
   gap: 45px;
   grid-template-columns: 0.3fr 1fr;
@@ -537,7 +523,7 @@ body { background: var(--paper); color: var(--ink); }
   display: grid;
   gap: 24px;
   grid-column: auto;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr);
   height: 250px;
   min-height: 0;
   padding: 30px 0;
@@ -559,13 +545,13 @@ body { background: var(--paper); color: var(--ink); }
 .expo-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 18px; }
 .expo-links a { color: var(--navy); font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
 .expo-links a:hover { color: var(--navy-soft); }
+.sticker-list-link { display: inline-block; font-size: 14px; margin-top: 12px; text-decoration: underline; text-underline-offset: 4px; }
 .line-sticker-card {
   height: auto;
   grid-template-rows: auto auto;
   min-height: 0;
 }
-.line-sticker-card .card-content,
-.line-sticker-card .card-arrow { grid-row: 1; }
+.line-sticker-card .card-content { grid-row: 1; }
 .line-sticker-card .sticker-ogps {
   border-bottom: 0;
   grid-column: 1 / -1;
@@ -584,18 +570,6 @@ body { background: var(--paper); color: var(--ink); }
   position: relative;
 }
 .sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
-.card-arrow {
-  align-self: start;
-  background: transparent;
-  color: var(--navy);
-  font-size: 18px;
-  grid-column: 2;
-  height: auto;
-  position: static;
-  width: auto;
-}
-.work-card:hover .card-arrow { transform: none; }
-
 /* Keep Japanese headings readable when they wrap. */
 .section-heading h2,
 .work-card h3,
@@ -637,7 +611,7 @@ body { background: var(--paper); color: var(--ink); }
   .work-card-featured {
     gap: 14px;
     height: auto;
-    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr);
     min-height: 230px;
     padding-bottom: 25px;
     padding-top: 25px;
