@@ -569,7 +569,7 @@ body { background: var(--paper); color: var(--ink); }
 .card-content,
 .work-card-featured .card-content { align-self: center; grid-column: 1; margin: 0; max-width: 600px; }
 .card-kicker { color: var(--navy-soft); margin-bottom: 8px; }
-.work-card h3 { font-size: 3rem; }
+.work-card h3 { font-size: 2.25rem; }
 .card-description { color: var(--navy-soft); margin-top: 15px; max-width: 500px; }
 .expo-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 18px; }
 .expo-links a { color: var(--navy); font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
@@ -657,7 +657,7 @@ body { background: var(--paper); color: var(--ink); }
     padding-bottom: 25px;
     padding-top: 25px;
   }
-  .work-card h3 { font-size: 2.25rem; }
+  .work-card h3 { font-size: 1.75rem; }
   .card-description { font-size: 13px; }
   .sticker-ogps {
     grid-template-columns: minmax(0, 1fr);
