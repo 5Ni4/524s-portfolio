@@ -453,13 +453,17 @@ body { background: var(--paper); color: var(--ink); }
   --line: #e1e5e7;
 }
 
-.site-header { border-bottom: 0; padding-bottom: 16px; padding-top: 24px; }
+.site-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+  padding-top: 24px;
+}
 .brand-mark {
   background: transparent;
   border: 0;
   border-radius: 0;
   color: var(--navy);
-  font-size: 13px;
+  font-size: 16px;
   height: auto;
   letter-spacing: 0.04em;
   padding: 0;
@@ -470,7 +474,7 @@ body { background: var(--paper); color: var(--ink); }
 .site-nav a {
   border-bottom: 0;
   color: var(--navy-soft);
-  font-size: 12px;
+  font-size: 14px;
   padding: 0;
 }
 .site-nav a:hover { color: var(--navy); }
@@ -633,7 +637,9 @@ body { background: var(--paper); color: var(--ink); }
 @media (max-width: 760px) {
   .site-header { padding-bottom: 18px; padding-top: 18px; }
   .site-nav { gap: 10px; }
-  .site-nav a { font-size: 11px; }
+  .brand-mark { font-size: 14px; }
+  .site-nav { gap: 12px; }
+  .site-nav a { font-size: 12px; }
   .hero { min-height: 0; padding-bottom: 70px; padding-top: 58px; }
   .hero h1 { font-size: 3.5rem; }
   .hero-note { font-size: 14px; margin-bottom: 25px; }
