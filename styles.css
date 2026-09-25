@@ -553,13 +553,13 @@ body { background: var(--paper); color: var(--ink); }
   gap: 24px;
   grid-column: auto;
   grid-template-columns: minmax(0, 1fr);
-  height: 250px;
-  min-height: 0;
-  padding: 30px 0;
+  height: auto;
+  min-height: 150px;
+  padding: 22px 0;
 }
 .work-card::before { display: none; }
 .work-card:hover { background: #fafbfb !important; box-shadow: none; transform: none; }
-.work-card-featured { padding-bottom: 30px; padding-top: 30px; }
+.work-card-featured { padding-bottom: 22px; padding-top: 22px; }
 .work-card-featured .card-content { margin: 0; }
 .card-cyan,
 .card-yellow,
@@ -653,9 +653,9 @@ body { background: var(--paper); color: var(--ink); }
     gap: 14px;
     height: auto;
     grid-template-columns: minmax(0, 1fr);
-    min-height: 230px;
-    padding-bottom: 25px;
-    padding-top: 25px;
+    min-height: 150px;
+    padding-bottom: 18px;
+    padding-top: 18px;
   }
   .work-card h3 { font-size: 1.75rem; }
   .card-description { font-size: 13px; }
