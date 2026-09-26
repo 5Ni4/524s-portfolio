@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="ja" data-design="simple">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,7 @@
       content="R-524 / X @R5ni4 / Portfolio"
     />
     <title>R-524 — Portfolio</title>
+    <script src="design-toggle.js"></script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2339BAD7'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='30' font-family='Arial' font-weight='800' fill='%23FFE11A'%3E524%3C/text%3E%3C/svg%3E" />
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -21,11 +22,17 @@
           </span>
           <span class="brand-mark">R-524</span>
         </a>
-        <nav class="site-nav" aria-label="メインナビゲーション">
-          <a href="#works">WORKS</a>
-          <a href="#publishing">OTHERS</a>
-          <a href="#creative">CREATIVE</a>
-        </nav>
+        <div class="header-controls">
+          <nav class="site-nav" aria-label="メインナビゲーション">
+            <a href="#works">WORKS</a>
+            <a href="#publishing">OTHERS</a>
+            <a href="#creative">CREATIVE</a>
+          </nav>
+          <button class="design-toggle" id="design-toggle" type="button" aria-label="デザイン切り替え。現在はシンプル" aria-pressed="false">
+            <span class="mode-simple">シンプル</span>
+            <span class="mode-colorful">カラフル</span>
+          </button>
+        </div>
       </header>
 
       <main id="top">

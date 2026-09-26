@@ -692,3 +692,124 @@ body { background: var(--paper); color: var(--ink); }
   .brand-icon { flex-basis: 30px; height: 30px; width: 30px; }
   .brand-icon img { height: 43.5px; left: -12.5px; top: -6.75px; width: 55px; }
 }
+
+.header-controls { align-items: center; display: flex; gap: 22px; }
+.design-toggle {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--navy);
+  border-radius: 0;
+  color: var(--navy);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 11px;
+  white-space: nowrap;
+}
+.design-toggle:hover { background: var(--line); }
+.design-toggle:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+html[data-design="simple"] .mode-colorful,
+html[data-design="colorful"] .mode-simple { display: none; }
+
+html[data-design="colorful"] {
+  --navy: #102d3c;
+  --navy-soft: #19495a;
+  --cyan: #39bad7;
+  --cyan-light: #8ee4ec;
+  --yellow: #ffe11a;
+  --yellow-soft: #fff0a3;
+  --orange: #ff7c35;
+  --cream: #f7f5e9;
+  --paper: #fffdf4;
+  --ink: #123848;
+  --line: rgba(18, 56, 72, 0.18);
+  --shadow: 0 12px 28px rgba(18, 56, 72, 0.14);
+}
+html[data-design="colorful"] body,
+html[data-design="colorful"] .page-shell { background: var(--paper); color: var(--ink); }
+html[data-design="colorful"] .brand-mark {
+  background: var(--yellow);
+  border: 2px solid var(--navy);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 var(--navy);
+  color: var(--navy);
+  padding: 0 8px;
+}
+html[data-design="colorful"] .site-nav a { color: var(--navy); }
+html[data-design="colorful"] .site-nav a:hover { color: var(--orange); }
+html[data-design="colorful"] .design-toggle {
+  background: var(--yellow);
+  border: 1px solid var(--navy);
+  box-shadow: 2px 2px 0 var(--navy);
+}
+html[data-design="colorful"] .design-toggle:hover { background: var(--yellow-soft); }
+html[data-design="colorful"] .hero h1 { color: var(--navy); }
+html[data-design="colorful"] .hero-note { color: var(--navy); }
+html[data-design="colorful"] .hero-social { color: var(--navy); }
+html[data-design="colorful"] .hero-art .art-card {
+  background: var(--cyan);
+  border: 2px solid var(--navy);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--yellow-soft);
+  transform: translateX(-50%) rotate(2deg);
+}
+html[data-design="colorful"] .works-section {
+  background: var(--cream);
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+html[data-design="colorful"] .section-heading h2 {
+  background: var(--yellow);
+  border: 1px solid var(--navy);
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 var(--navy);
+  color: var(--navy);
+  padding: 9px 12px;
+}
+html[data-design="colorful"] .card-cyan { --card-accent: var(--yellow); --card-bg: var(--cyan); }
+html[data-design="colorful"] .card-yellow { --card-accent: var(--orange); --card-bg: var(--yellow); }
+html[data-design="colorful"] .card-orange { --card-accent: var(--yellow); --card-bg: var(--orange); }
+html[data-design="colorful"] .card-cream { --card-accent: var(--cyan); --card-bg: var(--cream); }
+html[data-design="colorful"] .card-navy { --card-accent: var(--yellow); --card-bg: var(--navy-soft); }
+html[data-design="colorful"] .work-card {
+  background: var(--card-bg, var(--paper)) !important;
+  border: 1px solid var(--navy);
+  border-radius: 14px;
+  border-bottom: 1px solid var(--navy);
+  box-shadow: 3px 3px 0 rgba(16, 45, 60, 0.18);
+  color: var(--navy);
+  padding-left: 22px;
+  padding-right: 22px;
+}
+html[data-design="colorful"] .work-card::before {
+  background: var(--card-accent);
+  content: "";
+  display: block;
+  height: 5px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+html[data-design="colorful"] .work-card:hover {
+  background: var(--card-bg, var(--paper)) !important;
+  box-shadow: 5px 5px 0 rgba(16, 45, 60, 0.22);
+  transform: translateY(-2px);
+}
+html[data-design="colorful"] .card-navy h3 { color: var(--paper); }
+html[data-design="colorful"] .card-navy .card-description { color: rgba(255, 253, 244, 0.82); }
+
+@media (max-width: 760px) {
+  .header-controls { gap: 12px; }
+}
+@media (max-width: 420px) {
+  .site-header { display: grid; gap: 14px 10px; grid-template-columns: 1fr auto; }
+  .header-controls { display: contents; }
+  .brand { grid-column: 1; grid-row: 1; }
+  .design-toggle { grid-column: 2; grid-row: 1; }
+  .site-nav { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; }
+}
