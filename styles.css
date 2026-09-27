@@ -576,7 +576,7 @@ body { background: var(--paper); color: var(--ink); }
   grid-template-rows: auto auto;
   min-height: 0;
 }
-.line-sticker-card .card-content { grid-row: 1; pointer-events: none; }
+.line-sticker-card .card-content { grid-row: 1; margin-top: 0; pointer-events: none; }
 .line-sticker-card .sticker-list-overlay {
   inset: 0;
   position: absolute;
@@ -921,11 +921,11 @@ html[data-design="colorful"] .work-card:hover {
 
 .creative-clear-file-card {
   cursor: default;
-  grid-column: 1 / -1;
+  grid-column: auto;
   min-height: 0;
   padding: 22px 0;
 }
-.creative-clear-file-card .card-content { margin: 0 0 25px; max-width: none; }
+.creative-clear-file-card .card-content { margin: 0; max-width: none; }
 .creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
 .clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 0; max-width: 932px; width: 100%; }
 .clear-file-gallery figure { margin: 0; min-width: 0; }
@@ -989,8 +989,6 @@ html[data-design="colorful"] .work-card:hover {
   .clear-file-flip:not(.is-flipped):hover .clear-file-flip-inner { transform: none; }
   .clear-file-flip.is-flipped:hover .clear-file-flip-inner { transform: rotateY(180deg); }
 }
-
-html[data-design="colorful"] .works-grid .creative-clear-file-card { grid-column: 1 / -1; }
 
 /* Keep navigation available without letting it dominate the viewport. */
 .page-shell,
@@ -1347,4 +1345,41 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   .site-nav a { font-size: 12px; }
   #works,
   .works-group[id] { scroll-margin-top: 100px; }
+}
+
+#creative .line-sticker-card .card-content,
+#creative .creative-clear-file-card .card-content {
+  margin: 0;
+  max-width: none;
+}
+#creative .line-sticker-card h3,
+#creative .creative-clear-file-card h3 {
+  font-size: clamp(1.4rem, 2vw, 1.7rem);
+  line-height: 1.25;
+}
+html[data-design="colorful"] #creative .line-sticker-card {
+  --card-bg: #f3eedb;
+  --card-foreground: var(--navy);
+}
+html[data-design="colorful"] #creative .creative-clear-file-card {
+  --card-bg: #edf2ef;
+  --card-foreground: var(--navy);
+}
+
+@media (min-width: 761px) {
+  #creative .line-sticker-card .sticker-ogps {
+    gap: 16px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+    margin-inline: auto;
+    max-width: 440px;
+    width: 100%;
+  }
+  #creative .line-sticker-card .sticker-ogp { max-width: none; }
+  #creative .clear-file-gallery { gap: 12px; max-width: 100%; }
+  #creative .clear-file-flip-item { max-width: none; }
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+  #creative .works-grid { grid-template-columns: minmax(0, 1fr); }
 }
