@@ -914,7 +914,7 @@ html[data-design="colorful"] .work-card:hover {
 }
 .creative-clear-file-card .card-content { margin: 0 0 25px; max-width: none; }
 .creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
-.clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: auto; max-width: 932px; }
+.clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: auto; max-width: 932px; width: 100%; }
 .clear-file-gallery figure { margin: 0; min-width: 0; }
 .clear-file-gallery img {
   aspect-ratio: 566 / 800;
