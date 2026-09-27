@@ -733,7 +733,6 @@ body { background: var(--paper); color: var(--ink); }
 }
 .design-toggle:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
 .paint-tube { height: 100%; inset: 0; overflow: visible; position: absolute; width: 100%; }
-.paint-tube-shadow { display: none; }
 .paint-tube-body { fill: #fffdf7; }
 .paint-tube-outline { fill: none; stroke: #20272c; stroke-linejoin: round; stroke-width: 4px; }
 .paint-tube-crimp { fill: none; stroke: #aeb7b7; stroke-width: 2.5px; }
