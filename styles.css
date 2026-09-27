@@ -896,6 +896,7 @@ html[data-design="colorful"] .work-card:hover {
 }
 
 .creative-clear-file-card {
+  border-bottom: 0;
   cursor: default;
   grid-column: 1 / -1;
   min-height: 0;
