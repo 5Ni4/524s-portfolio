@@ -202,7 +202,11 @@
                     <h3 id="hobby-camera-title">カメラ</h3>
                     <p class="card-description">ランダムに3件表示しています</p>
                   </div>
-                  <div class="instagram-grid" id="instagram-posts" role="region" aria-label="ランダムに選ばれたInstagram投稿" aria-busy="true"></div>
+                  <div class="instagram-carousel">
+                    <div class="instagram-grid" id="instagram-posts" role="region" aria-label="ランダムに選ばれたInstagram投稿" aria-busy="true"></div>
+                    <button class="instagram-scroll-control instagram-scroll-control--prev" id="instagram-scroll-prev" type="button" aria-label="前のInstagram投稿へ" hidden>‹</button>
+                    <button class="instagram-scroll-control instagram-scroll-control--next" id="instagram-scroll-next" type="button" aria-label="次のInstagram投稿へ" hidden>›</button>
+                  </div>
                   <p class="instagram-status" id="instagram-status" role="status" aria-live="polite">投稿を読み込んでいます。</p>
                   <div class="instagram-controls">
                     <button class="instagram-refresh" id="refresh-instagram-posts" type="button">別の3件を見る ↻</button>

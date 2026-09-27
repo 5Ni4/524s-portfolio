@@ -14,7 +14,31 @@
   const instagramPosts = document.querySelector("#instagram-posts");
   const instagramStatus = document.querySelector("#instagram-status");
   const refreshInstagramButton = document.querySelector("#refresh-instagram-posts");
+  const previousPostButton = document.querySelector("#instagram-scroll-prev");
+  const nextPostButton = document.querySelector("#instagram-scroll-next");
   if (!instagramPosts || !instagramStatus || !refreshInstagramButton) return;
+
+  function updateScrollControls() {
+    if (!previousPostButton || !nextPostButton) return;
+    const hasOverflow = instagramPosts.scrollWidth > instagramPosts.clientWidth + 4;
+    const atStart = instagramPosts.scrollLeft <= 4;
+    const atEnd = instagramPosts.scrollLeft + instagramPosts.clientWidth >= instagramPosts.scrollWidth - 4;
+    previousPostButton.hidden = !hasOverflow || atStart;
+    nextPostButton.hidden = !hasOverflow || atEnd;
+  }
+
+  function scrollToAdjacentPost(direction) {
+    const firstPost = instagramPosts.firstElementChild;
+    if (!firstPost) return;
+    const gap = Number.parseFloat(getComputedStyle(instagramPosts).columnGap) || 0;
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    instagramPosts.scrollBy({ left: direction * (firstPost.getBoundingClientRect().width + gap), behavior });
+  }
+
+  instagramPosts.addEventListener("scroll", updateScrollControls, { passive: true });
+  window.addEventListener("resize", updateScrollControls);
+  previousPostButton?.addEventListener("click", () => scrollToAdjacentPost(-1));
+  nextPostButton?.addEventListener("click", () => scrollToAdjacentPost(1));
 
   let instagramEmbedScriptPromise;
 
@@ -105,6 +129,7 @@
         frame.append(embed);
       });
       instagramStatus.textContent = "";
+      requestAnimationFrame(updateScrollControls);
     } catch (error) {
       const fallbackLinks = selectedPosts.map((shortcode) => {
         const link = document.createElement("a");
@@ -117,6 +142,7 @@
       });
       instagramPosts.replaceChildren(...fallbackLinks);
       instagramStatus.textContent = "Instagramを埋め込めませんでした。投稿リンクからご覧ください。";
+      requestAnimationFrame(updateScrollControls);
     } finally {
       instagramPosts.setAttribute("aria-busy", "false");
       refreshInstagramButton.disabled = false;
