@@ -1142,7 +1142,7 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
   padding: 22px;
 }
 #hobby .instagram-hobby-card .card-content { margin: 0; max-width: none; }
-.instagram-carousel { min-width: 0; position: relative; width: 100%; }
+.instagram-carousel { min-width: 0; width: 100%; }
 .instagram-grid {
   align-items: start;
   display: grid;
@@ -1151,6 +1151,13 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
   min-width: 0;
   width: 100%;
 }
+.instagram-scroll-navigation {
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+.instagram-scroll-navigation[hidden] { display: none; }
 .instagram-scroll-control {
   align-items: center;
   background: rgba(255, 255, 255, 0.94);
@@ -1159,21 +1166,15 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
   box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
   color: #20272c;
   cursor: pointer;
-  display: none;
+  display: grid;
   font: 700 26px/1 var(--display);
   height: 44px;
   justify-content: center;
   padding: 0 0 3px;
-  position: absolute;
-  top: calc(50% - 4px);
-  transform: translateY(-50%);
   width: 44px;
-  z-index: 2;
 }
-.instagram-scroll-control:hover { background: #ffe11a; }
+.instagram-scroll-control:hover { background: #f0f3f4; }
 .instagram-scroll-control:focus-visible { outline: 3px solid #20272c; outline-offset: 3px; }
-.instagram-scroll-control--prev { left: 10px; }
-.instagram-scroll-control--next { right: 10px; }
 .instagram-grid .instagram-media {
   margin: 0 !important;
   max-width: 540px !important;
@@ -1237,7 +1238,7 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
   }
-  #hobby .instagram-scroll-control:not([hidden]) { display: grid; }
+  #hobby .instagram-scroll-navigation:not([hidden]) { display: flex; }
   #hobby .instagram-photo,
   #hobby .instagram-fallback {
     flex: 0 0 max(326px, min(86vw, 380px));

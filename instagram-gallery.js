@@ -14,15 +14,18 @@
   const instagramPosts = document.querySelector("#instagram-posts");
   const instagramStatus = document.querySelector("#instagram-status");
   const refreshInstagramButton = document.querySelector("#refresh-instagram-posts");
+  const scrollNavigation = document.querySelector("#instagram-scroll-navigation");
   const previousPostButton = document.querySelector("#instagram-scroll-prev");
   const nextPostButton = document.querySelector("#instagram-scroll-next");
   if (!instagramPosts || !instagramStatus || !refreshInstagramButton) return;
 
   function updateScrollControls() {
-    if (!previousPostButton || !nextPostButton) return;
-    const hasOverflow = instagramPosts.scrollWidth > instagramPosts.clientWidth + 4;
+    if (!scrollNavigation || !previousPostButton || !nextPostButton) return;
+    const hasOverflow = window.matchMedia("(max-width: 1060px)").matches
+      && instagramPosts.scrollWidth > instagramPosts.clientWidth + 4;
     const atStart = instagramPosts.scrollLeft <= 4;
     const atEnd = instagramPosts.scrollLeft + instagramPosts.clientWidth >= instagramPosts.scrollWidth - 4;
+    scrollNavigation.hidden = !hasOverflow;
     previousPostButton.hidden = !hasOverflow || atStart;
     nextPostButton.hidden = !hasOverflow || atEnd;
   }
