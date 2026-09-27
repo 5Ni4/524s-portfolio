@@ -726,8 +726,7 @@ body { background: var(--paper); color: var(--ink); }
 }
 .design-toggle:hover { text-decoration: underline; text-underline-offset: 3px; }
 .design-toggle:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
-html[data-design="simple"] .theme-simple,
-html[data-design="colorful"] .theme-524 { font-weight: 700; }
+.theme-current { font-weight: 700; }
 
 html[data-design="colorful"] {
   --navy: #102d3c;
