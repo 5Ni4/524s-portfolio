@@ -839,7 +839,7 @@ html[data-design="colorful"] .hero-art .art-card img { display: block; height: 1
 html[data-design="colorful"] .works-section {
   background: var(--cyan);
   border-bottom: 0;
-  border-top: 2px solid var(--navy);
+  border-top: 1px solid rgba(16, 45, 60, 0.28);
   color: var(--navy);
 }
 html[data-design="colorful"] .section-heading h2 {
