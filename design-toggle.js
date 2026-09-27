@@ -16,7 +16,7 @@
     const updateButton = () => {
       const isColorful = root.dataset.design === "colorful";
       button.setAttribute("aria-pressed", String(isColorful));
-      button.setAttribute("aria-label", `${isColorful ? "シンプル" : "カラフル"}表示に切り替え`);
+      button.setAttribute("aria-label", `テーマ切り替え。現在は${isColorful ? "524!" : "simple"}。押すと${isColorful ? "simple" : "524!"}に切り替え`);
       if (themeColor) themeColor.setAttribute("content", isColorful ? "#39bad7" : "#ffffff");
     };
 
