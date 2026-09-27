@@ -1310,26 +1310,29 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
     column-gap: 8px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
-    padding: 8px 14px;
-    row-gap: 6px;
+    padding: 6px 14px;
+    row-gap: 4px;
   }
   .header-controls { display: contents; }
-  .brand { gap: 7px; grid-column: 1; grid-row: 1; justify-self: start; }
+  .brand { gap: 7px; grid-column: 1 / -1; grid-row: 1; justify-self: start; }
   .design-toggle {
     grid-column: 2;
-    grid-row: 1;
-    height: 48px;
+    grid-row: 2;
+    height: 44px;
     justify-self: end;
-    min-height: 48px;
-    width: clamp(112px, 35vw, 132px);
+    min-height: 44px;
+    width: clamp(108px, 32vw, 132px);
   }
   .site-nav {
-    gap: clamp(14px, 5vw, 28px);
-    grid-column: 1 / -1;
+    align-self: center;
+    gap: clamp(8px, 3.5vw, 20px);
+    grid-column: 1;
     grid-row: 2;
     justify-content: flex-start;
     min-width: 0;
     width: 100%;
   }
   .site-nav a { font-size: 12px; }
+  #works,
+  .works-group[id] { scroll-margin-top: 100px; }
 }
