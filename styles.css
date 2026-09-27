@@ -1195,3 +1195,50 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
     scroll-snap-align: start;
   }
 }
+
+@media (max-width: 760px) {
+  .hero-note { margin-bottom: 0; }
+  .hero-actions {
+    align-items: stretch;
+    display: grid;
+    gap: 0 18px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 18px;
+  }
+  .hero-social {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 10px 0;
+  }
+  .hero-social::after {
+    content: '↗';
+    flex: 0 0 auto;
+    font-family: var(--display);
+    font-size: 12px;
+    margin-left: 8px;
+    opacity: 0.65;
+  }
+  .hero-art {
+    aspect-ratio: 1;
+    display: grid;
+    margin: 26px auto 0;
+    max-width: 240px;
+    min-height: 0;
+    place-items: center;
+    width: 100%;
+  }
+  .art-card {
+    aspect-ratio: 1;
+    height: auto;
+    left: auto;
+    position: relative;
+    top: auto;
+    transform: none;
+    width: 100%;
+  }
+  .art-card img { object-fit: contain; }
+  html[data-design="colorful"] .hero-social { padding: 10px 0; }
+  html[data-design="colorful"] .hero-art { margin-top: 26px; max-width: 240px; }
+}
