@@ -27,22 +27,44 @@
     return shuffled.slice(0, 3);
   }
 
-  async function loadInstagramPost(shortcode) {
+  function createInstagramPost(shortcode) {
     const postUrl = `https://www.instagram.com/p/${shortcode}/`;
-    const oembedUrl = new URL("https://graph.facebook.com/v26.0/instagram_oembed");
-    oembedUrl.searchParams.set("url", postUrl);
-    oembedUrl.searchParams.set("maxwidth", "540");
-    oembedUrl.searchParams.set("hidecaption", "true");
-
-    const response = await fetch(oembedUrl);
-    if (!response.ok) throw new Error("Instagram投稿を取得できませんでした。");
-
-    const data = await response.json();
-    const template = document.createElement("template");
-    template.innerHTML = data.html || "";
-    const embed = template.content.querySelector("blockquote.instagram-media");
-    if (!embed) throw new Error("Instagram投稿の埋め込みデータがありません。");
+    const embed = document.createElement("blockquote");
+    embed.className = "instagram-media";
+    embed.dataset.instgrmPermalink = postUrl;
+    embed.dataset.instgrmVersion = "14";
+    const link = document.createElement("a");
+    link.href = postUrl;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "Instagramで投稿を見る";
+    embed.append(link);
     return embed;
+  }
+
+  function waitForInstagramEmbeds(expectedCount, timeoutMs = 12000) {
+    return new Promise((resolve, reject) => {
+      const observer = new MutationObserver(() => {
+        const frames = [...instagramPosts.querySelectorAll("iframe")];
+        if (frames.length >= expectedCount) {
+          clearTimeout(timeout);
+          observer.disconnect();
+          resolve(frames);
+        }
+      });
+      const timeout = setTimeout(() => {
+        observer.disconnect();
+        reject(new Error("Instagram埋め込みの表示に時間がかかっています。"));
+      }, timeoutMs);
+      observer.observe(instagramPosts, { childList: true, subtree: true });
+
+      const frames = [...instagramPosts.querySelectorAll("iframe")];
+      if (frames.length >= expectedCount) {
+        clearTimeout(timeout);
+        observer.disconnect();
+        resolve(frames);
+      }
+    });
   }
 
   function loadInstagramEmbedScript() {
@@ -71,12 +93,11 @@
     instagramStatus.textContent = "投稿を読み込んでいます。";
 
     try {
-      const embeds = await Promise.all(selectedPosts.map(loadInstagramPost));
+      const embeds = selectedPosts.map(createInstagramPost);
       instagramPosts.replaceChildren(...embeds);
       await loadInstagramEmbedScript();
       window.instgrm.Embeds.process();
-      const renderedEmbeds = [...instagramPosts.querySelectorAll("iframe")];
-      if (renderedEmbeds.length !== 3) throw new Error("Instagram写真を表示できませんでした。");
+      const renderedEmbeds = await waitForInstagramEmbeds(embeds.length);
       renderedEmbeds.forEach((embed) => {
         const frame = document.createElement("div");
         frame.className = "instagram-photo";
@@ -95,7 +116,7 @@
         return link;
       });
       instagramPosts.replaceChildren(...fallbackLinks);
-      instagramStatus.textContent = "投稿を埋め込めませんでした。リンクからInstagramでご覧ください。";
+      instagramStatus.textContent = "Instagramを埋め込めませんでした。投稿リンクからご覧ください。";
     } finally {
       instagramPosts.setAttribute("aria-busy", "false");
       refreshInstagramButton.disabled = false;
