@@ -1139,6 +1139,34 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   padding: 22px;
 }
 #hobby .instagram-hobby-card .card-content { margin: 0; max-width: none; }
+.instagram-card-heading {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  width: 100%;
+}
+.instagram-card-copy { min-width: 0; }
+.instagram-card-actions { align-items: center; display: flex; flex: 0 0 auto; gap: 10px; }
+.instagram-card-action {
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(16, 45, 60, 0.28);
+  border-radius: 50%;
+  color: var(--navy);
+  cursor: pointer;
+  display: inline-grid;
+  height: 44px;
+  justify-content: center;
+  padding: 0;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+  width: 44px;
+}
+.instagram-card-action svg { display: block; height: 23px; width: 23px; }
+.instagram-card-action:hover { background: rgba(16, 45, 60, 0.07); }
+.instagram-card-action:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.instagram-card-action:disabled { cursor: wait; opacity: 0.6; }
 .instagram-carousel { min-width: 0; width: 100%; }
 .instagram-grid {
   align-items: start;
@@ -1196,22 +1224,6 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   width: 100% !important;
 }
 .instagram-status { color: var(--navy-soft); font-size: 12px; line-height: 1.5; margin: 0; min-height: 0; }
-.instagram-controls { align-items: center; display: flex; flex-wrap: wrap; gap: 8px 22px; }
-.instagram-refresh,
-.instagram-profile-link {
-  background: transparent;
-  border: 0;
-  color: var(--navy-soft);
-  font: inherit;
-  font-size: 12px;
-  padding: 3px 0;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-.instagram-refresh { cursor: pointer; }
-.instagram-refresh:hover,
-.instagram-profile-link:hover { color: var(--orange); }
-.instagram-refresh:disabled { cursor: wait; opacity: 0.6; }
 .instagram-fallback {
   align-items: center;
   aspect-ratio: 3 / 2;
