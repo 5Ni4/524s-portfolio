@@ -913,7 +913,6 @@ html[data-design="colorful"] .work-card:hover {
   padding: 22px 0;
 }
 .creative-clear-file-card .card-content { margin: 0 0 25px; max-width: none; }
-.creative-clear-file-card h3 { font-size: clamp(2rem, 4vw, 3.4rem); }
 .creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
 .clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .clear-file-gallery figure { margin: 0; min-width: 0; }
@@ -926,7 +925,7 @@ html[data-design="colorful"] .work-card:hover {
   object-fit: contain;
   width: 100%;
 }
-.clear-file-flip-item { min-width: 0; }
+.clear-file-flip-item { justify-self: center; max-width: 330px; min-width: 0; width: 100%; }
 .clear-file-flip {
   appearance: none;
   background: transparent;
