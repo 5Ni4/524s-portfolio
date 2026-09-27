@@ -925,7 +925,7 @@ html[data-design="colorful"] .work-card:hover {
   object-fit: contain;
   width: 100%;
 }
-.clear-file-flip-item { justify-self: center; max-width: 330px; min-width: 0; width: 100%; }
+.clear-file-flip-item { justify-self: center; max-width: 300px; min-width: 0; width: 100%; }
 .clear-file-flip {
   appearance: none;
   background: transparent;
