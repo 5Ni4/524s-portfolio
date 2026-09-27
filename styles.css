@@ -733,12 +733,13 @@ html[data-design="colorful"] body,
 html[data-design="colorful"] .page-shell { background: var(--cyan); color: var(--ink); }
 html[data-design="colorful"] .site-header { border-bottom: 2px solid var(--navy); }
 html[data-design="colorful"] .brand-mark {
-  background: var(--yellow);
-  border: 2px solid var(--navy);
-  border-radius: 8px;
-  box-shadow: 3px 3px 0 var(--navy);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
   color: var(--navy);
-  padding: 0 8px;
+  padding: 0;
+  width: auto;
 }
 html[data-design="colorful"] .site-nav a { color: var(--navy); }
 html[data-design="colorful"] .site-nav a:hover {
@@ -748,12 +749,15 @@ html[data-design="colorful"] .site-nav a:hover {
   text-underline-offset: 4px;
 }
 html[data-design="colorful"] .design-toggle {
-  background: var(--yellow);
-  border: 2px solid var(--navy);
-  box-shadow: 3px 3px 0 var(--navy);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--navy);
+  box-shadow: none;
   color: var(--navy);
+  padding-left: 0;
+  padding-right: 0;
 }
-html[data-design="colorful"] .design-toggle:hover { background: var(--yellow-soft); }
+html[data-design="colorful"] .design-toggle:hover { background: transparent; }
 html[data-design="colorful"] .design-toggle:focus-visible,
 html[data-design="colorful"] a:focus-visible { outline: 3px solid var(--navy); outline-offset: 4px; }
 html[data-design="colorful"] .hero {
@@ -763,11 +767,11 @@ html[data-design="colorful"] .hero {
   padding-top: 82px;
 }
 html[data-design="colorful"] .hero-copy {
-  background: var(--paper);
-  border: 2px solid var(--navy);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding: clamp(24px, 4vw, 42px);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
   position: relative;
   z-index: 1;
 }
@@ -781,14 +785,15 @@ html[data-design="colorful"] .hero-note a {
   text-underline-offset: 3px;
 }
 html[data-design="colorful"] .hero-social {
-  background: var(--yellow);
-  border: 2px solid var(--navy);
-  border-radius: 999px;
-  box-shadow: 2px 2px 0 var(--navy);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--navy);
+  border-radius: 0;
+  box-shadow: none;
   color: var(--navy);
-  padding: 9px 14px;
+  padding: 0 0 4px;
 }
-html[data-design="colorful"] .hero-social:hover { background: var(--yellow-soft); }
+html[data-design="colorful"] .hero-social:hover { background: transparent; }
 html[data-design="colorful"] .hero-art { min-height: 0; position: relative; }
 html[data-design="colorful"] .hero-art .art-card {
   background: var(--cyan);
@@ -813,12 +818,14 @@ html[data-design="colorful"] .works-section {
   color: var(--navy);
 }
 html[data-design="colorful"] .section-heading h2 {
-  background: var(--paper);
-  border: 2px solid var(--navy);
-  border-radius: 10px;
-  box-shadow: 3px 3px 0 var(--navy);
+  background: transparent;
+  border: 0;
+  border-bottom: 5px solid var(--yellow);
+  border-radius: 0;
+  box-shadow: none;
   color: var(--navy);
-  padding: 10px 14px;
+  display: inline-block;
+  padding: 0 0 8px;
 }
 html[data-design="colorful"] .works-grid {
   display: grid;
@@ -827,12 +834,12 @@ html[data-design="colorful"] .works-grid {
 }
 html[data-design="colorful"] .work-card {
   align-items: stretch;
-  background: var(--paper) !important;
+  background: var(--card-bg, var(--paper)) !important;
   border: 2px solid var(--navy);
   border-bottom-width: 4px;
   border-radius: 16px;
   box-shadow: 3px 3px 0 rgba(16, 45, 60, 0.35);
-  color: var(--navy);
+  color: var(--card-foreground, var(--navy));
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -854,25 +861,16 @@ html[data-design="colorful"] .work-card .card-content {
 }
 html[data-design="colorful"] .work-card h3,
 html[data-design="colorful"] .work-card .card-description,
-html[data-design="colorful"] .expo-links a { color: var(--navy); }
-html[data-design="colorful"] .card-cyan { --card-accent: #137289; }
-html[data-design="colorful"] .card-yellow { --card-accent: var(--orange); }
-html[data-design="colorful"] .card-orange { --card-accent: #a84417; }
-html[data-design="colorful"] .card-cream { --card-accent: var(--cyan); }
-html[data-design="colorful"] .card-navy { --card-accent: var(--yellow); }
-html[data-design="colorful"] .work-card::before {
-  background: var(--card-accent, var(--navy));
-  border-radius: 12px 12px 0 0;
-  content: "";
-  display: block;
-  height: 7px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
+html[data-design="colorful"] .work-card .card-kicker,
+html[data-design="colorful"] .expo-links a { color: var(--card-foreground, var(--navy)); }
+html[data-design="colorful"] .card-cyan { --card-bg: var(--cyan-light); --card-foreground: var(--navy); }
+html[data-design="colorful"] .card-yellow { --card-bg: var(--yellow); --card-foreground: var(--navy); }
+html[data-design="colorful"] .card-orange { --card-bg: var(--orange); --card-foreground: var(--navy); }
+html[data-design="colorful"] .card-cream { --card-bg: var(--cream); --card-foreground: var(--navy); }
+html[data-design="colorful"] .card-navy { --card-bg: var(--navy-soft); --card-foreground: var(--paper); }
+html[data-design="colorful"] .work-card::before { display: none; }
 html[data-design="colorful"] .work-card:hover {
-  background: var(--paper) !important;
+  background: var(--card-bg, var(--paper)) !important;
   box-shadow: 5px 5px 0 rgba(16, 45, 60, 0.45);
   transform: translateY(-2px);
 }
@@ -880,7 +878,7 @@ html[data-design="colorful"] .work-card:hover {
 @media (max-width: 760px) {
   html[data-design="colorful"] .header-controls { gap: 12px; }
   html[data-design="colorful"] .hero { min-height: 0; padding: 62px 20px 76px; }
-  html[data-design="colorful"] .hero-copy { padding: 24px; }
+  html[data-design="colorful"] .hero-copy { padding: 0; }
   html[data-design="colorful"] .hero-art { margin: 34px auto 0; max-width: 480px; min-height: 0; }
   html[data-design="colorful"] .hero-art .art-card { max-width: 100%; }
   html[data-design="colorful"] .works-section { padding: 72px 20px 82px; }
