@@ -48,7 +48,7 @@ a:focus-visible {
   padding: 30px 38px;
 }
 
-.brand { align-items: center; display: inline-flex; gap: 11px; }
+.brand { align-items: center; display: inline-flex; flex: 0 0 auto; gap: 11px; white-space: nowrap; }
 .brand-mark {
   align-items: center;
   background: var(--yellow);
@@ -1255,12 +1255,15 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
     margin-bottom: 0;
   }
   .hero-actions {
-    align-items: center;
+    align-items: flex-start;
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 6px 14px;
+    justify-content: flex-start;
     margin-top: 14px;
     position: relative;
+    text-align: left;
     width: calc(100% + var(--hero-art-size) + 16px);
     z-index: 1;
   }
@@ -1298,4 +1301,35 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   html[data-design="colorful"] .hero-social { padding: 0 0 2px; }
   html[data-design="colorful"] .hero-copy { padding-right: calc(var(--hero-art-size) + 16px); }
   html[data-design="colorful"] .hero-art { margin: 0; max-width: var(--hero-art-size); position: absolute; top: 62px; }
+}
+
+.brand-mark { flex-shrink: 0; white-space: nowrap; }
+
+@media (max-width: 600px) {
+  .site-header {
+    column-gap: 8px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 8px 14px;
+    row-gap: 6px;
+  }
+  .header-controls { display: contents; }
+  .brand { gap: 7px; grid-column: 1; grid-row: 1; justify-self: start; }
+  .design-toggle {
+    grid-column: 2;
+    grid-row: 1;
+    height: 48px;
+    justify-self: end;
+    min-height: 48px;
+    width: clamp(112px, 35vw, 132px);
+  }
+  .site-nav {
+    gap: clamp(14px, 5vw, 28px);
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    min-width: 0;
+    width: 100%;
+  }
+  .site-nav a { font-size: 12px; }
 }
