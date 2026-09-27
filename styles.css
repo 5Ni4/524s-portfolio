@@ -984,3 +984,69 @@ html[data-design="colorful"] .work-card:hover {
 
 html[data-design="colorful"] .works-grid .creative-clear-file-card { grid-column: 1 / -1; }
 
+/* Keep navigation available without letting it dominate the viewport. */
+.page-shell,
+html[data-design="colorful"] .page-shell { overflow: clip; }
+.site-header {
+  background: var(--paper);
+  max-width: none;
+  padding: 10px max(20px, calc((100vw - 1164px) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+html[data-design="colorful"] .site-header { background: var(--cyan); }
+.header-controls { gap: 16px; }
+.site-nav { max-width: 100%; scrollbar-width: none; }
+.site-nav::-webkit-scrollbar { display: none; }
+.site-nav a { white-space: nowrap; }
+#works,
+.works-group[id] { scroll-margin-top: 86px; }
+
+/* Shorter group spacing and a denser layout for secondary links. */
+.works-section { padding-bottom: 72px; padding-top: 68px; }
+html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top: 68px; }
+.works-groups { gap: 46px; }
+.compact-works-group .works-grid {
+  display: grid;
+  gap: 0 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.compact-works-group .work-card { min-height: 0; padding: 14px 16px; }
+.compact-works-group .work-card h3 { font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.25; }
+.compact-works-group .card-description { margin-top: 8px; }
+#hobby .works-grid { grid-template-columns: minmax(0, 1fr); }
+
+@media (max-width: 760px) {
+  .site-header { padding: 8px 16px; }
+  .header-controls { gap: 10px; }
+  .site-nav { gap: 12px; }
+  .works-section { padding: 48px 20px 56px; }
+  html[data-design="colorful"] .works-section { padding: 48px 20px 56px; }
+  .works-groups { gap: 36px; }
+  .compact-works-group .works-grid { gap: 0 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compact-works-group .work-card { padding: 12px 8px; }
+  html[data-design="colorful"] .compact-works-group .work-card { min-height: 0; padding: 12px; }
+  .clear-file-gallery {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 0 2px 10px;
+    scroll-padding-inline: 2px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--navy-soft) transparent;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .clear-file-gallery::-webkit-scrollbar { height: 5px; }
+  .clear-file-gallery::-webkit-scrollbar-thumb { background: var(--navy-soft); border-radius: 999px; }
+  .clear-file-gallery::-webkit-scrollbar-track { background: transparent; }
+  .clear-file-flip-item { flex: 0 0 min(76vw, 300px); scroll-snap-align: start; }
+}
+
+@media (max-width: 420px) {
+  .site-header { gap: 8px; }
+  .site-nav { gap: 8px; }
+  .site-nav a { font-size: 11px; }
+}
