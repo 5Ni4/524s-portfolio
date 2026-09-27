@@ -1106,11 +1106,8 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   width: clamp(84px, 13vw, 116px);
 }
 #works .project-card .card-content { display: flex; flex: 1; flex-direction: column; gap: 0; margin: 0; max-width: none; padding: 17px 20px 20px; }
-#works .project-card-heading { align-items: center; display: flex; gap: 12px; justify-content: space-between; }
+#works .project-card-heading { align-items: center; display: flex; }
 #works .project-card h3 { color: var(--navy); font-size: clamp(1.15rem, 1.8vw, 1.45rem); letter-spacing: 0; line-height: 1.35; margin: 0; }
-#works .project-card-arrow { align-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--navy-soft); display: flex; flex: 0 0 29px; font-size: 16px; height: 29px; justify-content: center; transition: background 180ms ease, color 180ms ease; width: 29px; }
-#works .project-card:hover .project-card-arrow { background: var(--yellow); border-color: var(--navy); color: var(--navy); }
-html[data-design="simple"] #works .project-card:hover .project-card-arrow { background: #f0f3f4; border-color: #70797f; color: #70797f; }
 #works .project-card .card-description { color: var(--navy-soft); font-size: 13px; line-height: 1.7; margin: 7px 0 0; max-width: none; }
 
 @media (max-width: 760px) {
@@ -1120,7 +1117,6 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
 }
 @media (prefers-reduced-motion: reduce) {
   #works .project-card:hover { transform: none; }
-  #works .project-card-arrow { transition: none; }
   .design-toggle { transition: none; }
   .design-toggle:hover { transform: none; }
 }
