@@ -914,7 +914,7 @@ html[data-design="colorful"] .work-card:hover {
 }
 .creative-clear-file-card .card-content { margin: 0 0 25px; max-width: none; }
 .creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
-.clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: auto; max-width: 932px; width: 100%; }
+.clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 0; max-width: 932px; width: 100%; }
 .clear-file-gallery figure { margin: 0; min-width: 0; }
 .clear-file-gallery img {
   aspect-ratio: 566 / 800;
@@ -1083,22 +1083,13 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
 #works .artwork-pitakabe { background: #dcebbd; }
 #works .artwork-game { background: #39bad7; }
 #works .artwork-focus { background: #263845; }
-#works .project-artwork-logo {
-  height: 84%;
-  max-width: 42%;
-  object-fit: contain;
-  width: auto;
-}
 #works .project-app-icon {
   height: clamp(84px, 13vw, 116px);
   max-height: 78%;
+  max-width: 78%;
   object-fit: contain;
-  width: auto;
+  width: clamp(84px, 13vw, 116px);
 }
-#works .project-stamp { height: auto; object-fit: contain; position: absolute; }
-#works .stamp-rocket { left: 14%; transform: rotate(-9deg); width: 27%; }
-#works .stamp-star { left: 37%; top: 8%; transform: rotate(6deg); width: 29%; }
-#works .stamp-wave { right: 11%; transform: rotate(-7deg); width: 31%; }
 #works .project-card .card-content { display: flex; flex: 1; flex-direction: column; gap: 0; margin: 0; max-width: none; padding: 17px 20px 20px; }
 #works .project-card-heading { align-items: center; display: flex; gap: 12px; justify-content: space-between; }
 #works .project-card h3 { color: var(--navy); font-size: clamp(1.15rem, 1.8vw, 1.45rem); letter-spacing: 0; line-height: 1.35; margin: 0; }
