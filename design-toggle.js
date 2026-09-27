@@ -11,11 +11,13 @@
   document.addEventListener("DOMContentLoaded", () => {
     const button = document.getElementById("design-toggle");
     if (!button) return;
+    const themeColor = document.querySelector('meta[name="theme-color"]');
 
     const updateButton = () => {
       const isColorful = root.dataset.design === "colorful";
       button.setAttribute("aria-pressed", String(isColorful));
-      button.setAttribute("aria-label", `デザイン切り替え。現在は${isColorful ? "カラフル" : "シンプル"}`);
+      button.setAttribute("aria-label", `${isColorful ? "シンプル" : "カラフル"}表示に切り替え`);
+      if (themeColor) themeColor.setAttribute("content", isColorful ? "#39bad7" : "#ffffff");
     };
 
     updateButton();
