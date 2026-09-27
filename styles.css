@@ -899,10 +899,9 @@ html[data-design="colorful"] .work-card:hover {
   cursor: default;
   grid-column: 1 / -1;
   min-height: 0;
-  padding: 30px;
+  padding: 22px 0;
 }
 .creative-clear-file-card .card-content { margin: 0 0 25px; max-width: none; }
-.creative-clear-file-card .card-kicker { letter-spacing: 0.1em; }
 .creative-clear-file-card h3 { font-size: clamp(2rem, 4vw, 3.4rem); }
 .creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
 .clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -963,7 +962,7 @@ html[data-design="colorful"] .work-card:hover {
 .clear-file-flip-hint { color: var(--navy-soft); font-size: 11px; line-height: 1.45; margin-left: auto; }
 
 @media (max-width: 760px) {
-  .creative-clear-file-card { margin-bottom: 16px; padding: 20px; }
+  .creative-clear-file-card { margin-bottom: 16px; padding: 18px 0; }
   .clear-file-gallery { gap: 15px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
