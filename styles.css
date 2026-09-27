@@ -1251,32 +1251,29 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
     position: relative;
   }
   .hero-copy { padding-right: calc(var(--hero-art-size) + 16px); }
-  .hero-note { margin-bottom: 0; }
+  .hero-note {
+    font-size: 12px;
+    line-height: 1.65;
+    margin-bottom: 0;
+  }
   .hero-actions {
-    align-items: stretch;
-    display: grid;
-    gap: 0 18px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 18px;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    margin-top: 14px;
     position: relative;
     width: calc(100% + var(--hero-art-size) + 16px);
     z-index: 1;
   }
   .hero-social {
     align-items: center;
-    display: flex;
-    justify-content: space-between;
-    min-width: 0;
-    padding: 10px 0;
-  }
-  .hero-social::after {
-    content: '↗';
-    flex: 0 0 auto;
-    font-family: var(--display);
+    display: inline-flex;
     font-size: 12px;
-    margin-left: 8px;
-    opacity: 0.65;
+    min-width: 0;
+    padding: 0 0 2px;
   }
+  .hero-social::after { content: none; }
   .hero-art {
     aspect-ratio: 1;
     display: grid;
@@ -1288,6 +1285,7 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
     right: 20px;
     top: 58px;
     width: var(--hero-art-size);
+    z-index: 2;
   }
   .art-card {
     aspect-ratio: 1;
@@ -1299,7 +1297,7 @@ html[data-design="simple"] #works .project-card:hover .project-card-arrow { back
     width: 100%;
   }
   .art-card img { object-fit: contain; }
-  html[data-design="colorful"] .hero-social { padding: 10px 0; }
+  html[data-design="colorful"] .hero-social { padding: 0 0 2px; }
   html[data-design="colorful"] .hero-copy { padding-right: calc(var(--hero-art-size) + 16px); }
   html[data-design="colorful"] .hero-art { margin: 0; max-width: var(--hero-art-size); position: absolute; top: 62px; }
 }
