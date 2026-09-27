@@ -655,7 +655,7 @@ body { background: var(--paper); color: var(--ink); }
   .hero { min-height: 0; padding-bottom: 70px; padding-top: 58px; }
   .hero h1 { font-size: 3.5rem; }
   .hero-note { font-size: 14px; margin-bottom: 25px; }
-  .hero-art { min-height: 320px; }
+  .hero-art { margin-top: 28px; min-height: 320px; }
   .art-card { height: 300px; width: 280px; }
   .works-section { padding-bottom: 74px; padding-top: 68px; }
   .works-groups { gap: 70px; grid-template-columns: 1fr; }
