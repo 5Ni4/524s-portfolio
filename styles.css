@@ -672,7 +672,8 @@ body { background: var(--paper); color: var(--ink); }
   .work-card h3 { font-size: 1.75rem; }
   .card-description { font-size: 13px; }
   .sticker-ogps {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 376px;
     padding-top: 20px;
   }
   .sticker-ogp { max-width: 180px; }
@@ -1048,6 +1049,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 #works .project-card {
+  align-items: stretch;
   background: var(--paper) !important;
   border: 1px solid var(--line);
   border-radius: 16px;
@@ -1077,6 +1079,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   overflow: hidden;
   place-items: center;
   position: relative;
+  width: 100%;
 }
 #works .artwork-friends { background: #1d353f; }
 #works .artwork-petakakushi { background: #fff1ca; }
