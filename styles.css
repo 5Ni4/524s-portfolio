@@ -605,8 +605,23 @@ body { background: var(--paper); color: var(--ink); }
   max-width: 180px;
   pointer-events: auto;
   position: relative;
+  transform-origin: center 80%;
 }
 .sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
+@keyframes sticker-ogp-wobble {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(3deg) translateY(-2px); }
+  50% { transform: rotate(0deg) translateY(-1px); }
+  75% { transform: rotate(-3deg) translateY(-2px); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .sticker-ogp:hover { animation: sticker-ogp-wobble 700ms ease-in-out infinite; }
+}
+.sticker-ogp:focus-visible { animation: sticker-ogp-wobble 700ms ease-in-out 2; }
+@media (prefers-reduced-motion: reduce) {
+  .sticker-ogp:hover,
+  .sticker-ogp:focus-visible { animation: none; }
+}
 /* Keep Japanese headings readable when they wrap. */
 .section-heading h2,
 .work-card h3,
