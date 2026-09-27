@@ -1050,3 +1050,93 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   .site-nav { gap: 8px; }
   .site-nav a { font-size: 11px; }
 }
+
+
+#hobby .instagram-hobby-card {
+  align-items: stretch;
+  display: grid;
+  gap: 16px;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+  overflow: visible;
+  padding: 22px;
+}
+#hobby .instagram-hobby-card .card-content { margin: 0; max-width: none; }
+.instagram-grid {
+  align-items: start;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+  width: 100%;
+}
+.instagram-grid .instagram-media {
+  margin: 0 !important;
+  max-width: 540px !important;
+  min-width: min(326px, 100%) !important;
+  width: 100% !important;
+}
+.instagram-photo {
+  aspect-ratio: 3 / 2;
+  background: var(--paper);
+  container-type: inline-size;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.instagram-photo > .instagram-media,
+.instagram-photo > iframe {
+  left: 0 !important;
+  margin: 0 !important;
+  max-width: 540px !important;
+  position: absolute !important;
+  top: -14cqw !important;
+  width: 100% !important;
+}
+.instagram-status { color: var(--navy-soft); font-size: 12px; line-height: 1.5; margin: 0; min-height: 0; }
+.instagram-controls { align-items: center; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.instagram-refresh,
+.instagram-profile-link {
+  background: transparent;
+  border: 0;
+  color: var(--navy-soft);
+  font: inherit;
+  font-size: 12px;
+  padding: 3px 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.instagram-refresh { cursor: pointer; }
+.instagram-refresh:hover,
+.instagram-profile-link:hover { color: var(--orange); }
+.instagram-refresh:disabled { cursor: wait; opacity: 0.6; }
+.instagram-fallback {
+  align-items: center;
+  aspect-ratio: 3 / 2;
+  border: 1px solid var(--line);
+  color: var(--navy-soft);
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  text-align: center;
+  text-underline-offset: 3px;
+}
+@media (max-width: 1060px) {
+  #hobby .instagram-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 0 0 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--navy-soft) transparent;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  #hobby .instagram-photo,
+  #hobby .instagram-fallback {
+    flex: 0 0 max(326px, min(86vw, 380px));
+    scroll-snap-align: start;
+  }
+}
