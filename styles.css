@@ -941,6 +941,11 @@ html[data-design="colorful"] .work-card:hover {
   transition: transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .clear-file-flip.is-flipped .clear-file-flip-inner { transform: rotateY(180deg); }
+@media (hover: hover) and (pointer: fine) {
+  .clear-file-flip:not(.is-flipped):hover .clear-file-flip-inner { transform: translateY(-4px) rotateZ(-0.8deg); }
+  .clear-file-flip.is-flipped:hover .clear-file-flip-inner { transform: rotateY(180deg) translateY(-4px) rotateZ(0.8deg); }
+  .clear-file-flip:hover .clear-file-flip-hint { color: var(--orange); }
+}
 .clear-file-flip-face {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -966,4 +971,6 @@ html[data-design="colorful"] .work-card:hover {
 
 @media (prefers-reduced-motion: reduce) {
   .clear-file-flip-inner { transition: none; }
+  .clear-file-flip:not(.is-flipped):hover .clear-file-flip-inner { transform: none; }
+  .clear-file-flip.is-flipped:hover .clear-file-flip-inner { transform: rotateY(180deg); }
 }

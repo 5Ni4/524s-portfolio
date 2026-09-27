@@ -42,10 +42,11 @@
         const visibleLabel = isFlipped ? flipButton.dataset.backLabel : flipButton.dataset.frontLabel;
         const nextSide = isFlipped ? "表面" : "裏面";
         const visibleNote = isFlipped ? (flipButton.dataset.backNote || "") : (flipButton.dataset.frontNote || "");
+        const visibleDescription = isFlipped ? (flipButton.dataset.backDescription || "") : (flipButton.dataset.frontDescription || "");
 
         label.textContent = visibleLabel;
         hint.textContent = `タップで${nextSide}へ ↻`;
-        flipButton.setAttribute("aria-label", `${visibleLabel}。タップまたはクリックで${nextSide}へ切り替え`);
+        flipButton.setAttribute("aria-label", `${visibleLabel}${visibleDescription ? `。${visibleDescription}` : ""}。タップまたはクリックで${nextSide}へ切り替え`);
         flipButton.setAttribute("aria-pressed", String(isFlipped));
         front.setAttribute("aria-hidden", String(isFlipped));
         back.setAttribute("aria-hidden", String(!isFlipped));
