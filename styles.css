@@ -1315,6 +1315,18 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
 
 .brand-mark { flex-shrink: 0; white-space: nowrap; }
 
+/* Temporary preview: let the 524 hero illustration gently float. */
+@keyframes mascot-float-preview {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-design="colorful"] .hero-art .art-card {
+    animation: mascot-float-preview 5.24s ease-in-out infinite;
+  }
+}
+
 @media (max-width: 600px) {
   .site-header {
     column-gap: 8px;
@@ -1382,4 +1394,34 @@ html[data-design="colorful"] #creative .creative-clear-file-card {
 
 @media (min-width: 761px) and (max-width: 1000px) {
   #creative .works-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Small, short-lived color flecks follow the mouse in the colorful theme. */
+.cursor-dot-layer {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: fixed;
+  z-index: 1000;
+}
+html[data-design="simple"] .cursor-dot-layer { display: none; }
+.cursor-dot {
+  animation: cursor-dot-fade 520ms cubic-bezier(.2, .7, .3, 1) forwards;
+  background: #ffe11a;
+  border-radius: 50%;
+  opacity: 0;
+  position: absolute;
+  transform: translate(-50%, -50%) scale(.45);
+  will-change: transform, opacity;
+}
+@keyframes cursor-dot-fade {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.45); }
+  18% { opacity: .92; transform: translate(-50%, -50%) scale(1); }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dot-drift-x)), calc(-50% + var(--dot-drift-y))) scale(.55);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-dot-layer { display: none !important; }
 }
