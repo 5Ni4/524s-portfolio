@@ -714,7 +714,7 @@ body { background: var(--paper); color: var(--ink); }
   color: #20272c;
   cursor: pointer;
   display: inline-grid;
-  filter: drop-shadow(3px 4px 0 #20272c);
+  filter: none;
   font-family: var(--display);
   font-size: 13px;
   justify-content: center;
@@ -733,7 +733,7 @@ body { background: var(--paper); color: var(--ink); }
 }
 .design-toggle:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
 .paint-tube { height: 100%; inset: 0; overflow: visible; position: absolute; width: 100%; }
-.paint-tube-shadow { fill: #20272c; transform: translate(4px, 5px); }
+.paint-tube-shadow { display: none; }
 .paint-tube-body { fill: #fffdf7; }
 .paint-tube-outline { fill: none; stroke: #20272c; stroke-linejoin: round; stroke-width: 4px; }
 .paint-tube-crimp { fill: none; stroke: #aeb7b7; stroke-width: 2.5px; }
@@ -747,7 +747,6 @@ html[data-design="colorful"] .paint-tube-cap { fill: var(--orange); }
 html[data-design="colorful"] .paint-tube-ridges { stroke: #a54319; }
 html[data-design="colorful"] .paint-tube-outline,
 html[data-design="colorful"] .paint-tube-cap { stroke: var(--navy); }
-html[data-design="colorful"] .paint-tube-shadow { fill: var(--navy); }
 html[data-design="colorful"] .design-toggle:hover {
   filter: drop-shadow(4px 5px 0 var(--navy));
 }
