@@ -905,7 +905,7 @@ html[data-design="colorful"] .work-card:hover {
 .creative-clear-file-card .card-kicker { letter-spacing: 0.1em; }
 .creative-clear-file-card h3 { font-size: clamp(2rem, 4vw, 3.4rem); }
 .creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
-.clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .clear-file-gallery figure { margin: 0; min-width: 0; }
 .clear-file-gallery img {
   aspect-ratio: 566 / 800;
@@ -917,8 +917,53 @@ html[data-design="colorful"] .work-card:hover {
   width: 100%;
 }
 .clear-file-gallery figcaption { color: var(--navy-soft); font-family: var(--mono); font-size: 12px; line-height: 1.45; margin-top: 10px; }
+.clear-file-flip-item { min-width: 0; }
+.clear-file-flip {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  font: inherit;
+  padding: 0;
+  perspective: 1200px;
+  text-align: left;
+  width: 100%;
+}
+.clear-file-flip:focus-visible { border-radius: 16px; outline: 3px solid var(--orange); outline-offset: 4px; }
+.clear-file-flip-inner {
+  aspect-ratio: 566 / 800;
+  display: block;
+  position: relative;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 560ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.clear-file-flip.is-flipped .clear-file-flip-inner { transform: rotateY(180deg); }
+.clear-file-flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  inset: 0;
+  overflow: hidden;
+  position: absolute;
+}
+.clear-file-flip-face img { border: 0; border-radius: inherit; height: 100%; }
+.clear-file-flip-back { transform: rotateY(180deg); }
+.clear-file-flip-caption { align-items: baseline; display: flex; flex-wrap: wrap; gap: 5px 10px; margin-top: 10px; }
+.clear-file-flip-label { color: var(--navy-soft); font-family: var(--mono); font-size: 12px; line-height: 1.45; }
+.clear-file-flip-note { color: var(--orange); font-family: var(--mono); font-size: 11px; line-height: 1.45; }
+.clear-file-flip-note[hidden] { display: none; }
+.clear-file-flip-hint { color: var(--navy-soft); font-size: 11px; line-height: 1.45; margin-left: auto; }
 
 @media (max-width: 760px) {
   .creative-clear-file-card { margin-bottom: 16px; padding: 20px; }
   .clear-file-gallery { gap: 15px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clear-file-flip-inner { transition: none; }
 }
