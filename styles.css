@@ -571,9 +571,6 @@ body { background: var(--paper); color: var(--ink); }
 .card-kicker { color: var(--navy-soft); margin-bottom: 8px; }
 .work-card h3 { font-size: 2.25rem; }
 .card-description { color: var(--navy-soft); margin-top: 15px; max-width: 500px; }
-.expo-links { display: flex; flex-wrap: wrap; gap: 10px 24px; margin-top: 18px; }
-.expo-links a { color: var(--navy); font-size: 14px; text-decoration: underline; text-underline-offset: 4px; }
-.expo-links a:hover { color: var(--navy-soft); }
 .line-sticker-card {
   height: auto;
   grid-template-rows: auto auto;
@@ -876,8 +873,7 @@ html[data-design="colorful"] .work-card .card-content {
 }
 html[data-design="colorful"] .work-card h3,
 html[data-design="colorful"] .work-card .card-description,
-html[data-design="colorful"] .work-card .card-kicker,
-html[data-design="colorful"] .expo-links a { color: var(--card-foreground, var(--navy)); }
+html[data-design="colorful"] .work-card .card-kicker { color: var(--card-foreground, var(--navy)); }
 html[data-design="colorful"] .card-cyan { --card-bg: var(--cyan-light); --card-foreground: var(--navy); }
 html[data-design="colorful"] .card-yellow { --card-bg: var(--yellow); --card-foreground: var(--navy); }
 html[data-design="colorful"] .card-orange { --card-bg: var(--orange); --card-foreground: var(--navy); }
