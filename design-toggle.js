@@ -33,7 +33,6 @@
     document.querySelectorAll(".clear-file-flip").forEach((flipButton) => {
       const label = flipButton.querySelector(".clear-file-flip-label");
       const hint = flipButton.querySelector(".clear-file-flip-hint");
-      const note = flipButton.querySelector(".clear-file-flip-note");
       const front = flipButton.querySelector(".clear-file-flip-front");
       const back = flipButton.querySelector(".clear-file-flip-back");
 
@@ -41,7 +40,6 @@
         const isFlipped = flipButton.classList.contains("is-flipped");
         const visibleLabel = isFlipped ? flipButton.dataset.backLabel : flipButton.dataset.frontLabel;
         const nextSide = isFlipped ? "表面" : "裏面";
-        const visibleNote = isFlipped ? (flipButton.dataset.backNote || "") : (flipButton.dataset.frontNote || "");
         const visibleDescription = isFlipped ? (flipButton.dataset.backDescription || "") : (flipButton.dataset.frontDescription || "");
 
         label.textContent = visibleLabel;
@@ -50,10 +48,6 @@
         flipButton.setAttribute("aria-pressed", String(isFlipped));
         front.setAttribute("aria-hidden", String(isFlipped));
         back.setAttribute("aria-hidden", String(!isFlipped));
-        if (note) {
-          note.textContent = visibleNote;
-          note.hidden = !visibleNote;
-        }
       };
 
       flipButton.addEventListener("click", () => {

@@ -960,8 +960,6 @@ html[data-design="colorful"] .work-card:hover {
 .clear-file-flip-back { transform: rotateY(180deg); }
 .clear-file-flip-caption { align-items: baseline; display: flex; flex-wrap: wrap; gap: 5px 10px; margin-top: 10px; }
 .clear-file-flip-label { color: var(--navy-soft); font-family: var(--mono); font-size: 12px; line-height: 1.45; }
-.clear-file-flip-note { color: var(--orange); font-family: var(--mono); font-size: 11px; line-height: 1.45; }
-.clear-file-flip-note[hidden] { display: none; }
 .clear-file-flip-hint { color: var(--navy-soft); font-size: 11px; line-height: 1.45; margin-left: auto; }
 
 @media (max-width: 760px) {
@@ -976,43 +974,8 @@ html[data-design="colorful"] .work-card:hover {
 }
 
 #illustration .section-heading h2 { font-size: clamp(2.2rem, 4.6vw, 4.1rem); }
-.parfait-sketch-card {
-  align-items: center;
-  display: grid;
-  gap: clamp(20px, 4vw, 54px);
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  min-height: 0;
-}
-.parfait-sketch-card .card-content { margin: 0; max-width: none; }
-.parfait-sketch-art { align-items: center; display: flex; gap: 14px; justify-content: center; min-width: 0; }
-.parfait-sketch-drawing {
-  aspect-ratio: 3 / 4;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  display: block;
-  flex: 1 1 auto;
-  max-height: 440px;
-  max-width: 320px;
-  object-fit: contain;
-  width: 68%;
-}
-.parfait-sketch-title { flex: 0 1 175px; max-width: 175px; width: 32%; }
 html[data-design="colorful"] .works-grid .illustration-clear-file-card { grid-column: 1 / -1; }
-html[data-design="colorful"] .works-grid .parfait-sketch-card {
-  align-items: center;
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  min-height: 0;
-}
-html[data-design="colorful"] .works-grid .parfait-sketch-card .card-content { margin: 0; max-width: none; }
 
 @media (max-width: 760px) {
   #illustration .section-heading h2 { font-size: clamp(1.8rem, 8.4vw, 2.55rem); }
-  .parfait-sketch-card { gap: 22px; grid-template-columns: minmax(0, 1fr); padding: 20px; }
-  .parfait-sketch-drawing { max-height: 380px; width: 62%; }
-  .parfait-sketch-title { max-width: 160px; width: 32%; }
-  html[data-design="colorful"] .works-grid .parfait-sketch-card { grid-template-columns: minmax(0, 1fr); }
 }
