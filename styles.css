@@ -1469,3 +1469,31 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   transform: scaleX(1);
   transform-origin: left center;
 }
+
+/* Diagonal yellow slide behind the R-524 title. */
+.hero h1 {
+  isolation: isolate;
+  max-width: 100%;
+  position: relative;
+  width: fit-content;
+}
+.hero h1::before {
+  background: var(--yellow);
+  content: "";
+  inset: -0.1em -0.08em -0.14em;
+  pointer-events: none;
+  position: absolute;
+  transform: skewX(-12deg) scaleX(0);
+  transform-origin: right center;
+  transition: transform 380ms cubic-bezier(.45, 0, .55, 1);
+  z-index: -1;
+}
+@media (hover: hover) and (pointer: fine) {
+  .hero h1:hover::before {
+    transform: skewX(-12deg) scaleX(1);
+    transform-origin: left center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero h1::before { transition: none; }
+}
