@@ -1435,7 +1435,7 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
 .hero-social::before {
   background: var(--yellow);
   content: "";
-  inset: -3px -7px 3px;
+  inset: -3px -2px 3px;
   position: absolute;
   transform: scaleX(0);
   transform-origin: right center;
@@ -1443,20 +1443,17 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
   z-index: -1;
 }
 @media (hover: hover) and (pointer: fine) {
-  html[data-design="simple"] .hero-social:hover,
-  html[data-design="colorful"] .hero-social:hover {
-    border-color: transparent;
-    color: var(--navy);
-  }
   .hero-social:hover::before {
     transform: scaleX(1);
     transform-origin: left center;
   }
 }
+html[data-design="simple"] .hero-social:hover,
+html[data-design="colorful"] .hero-social:hover,
 html[data-design="simple"] .hero-social:focus-visible,
 html[data-design="colorful"] .hero-social:focus-visible {
   border-color: transparent;
-  color: var(--navy);
+  color: #102d3c;
 }
 .hero-social:focus-visible::before {
   transform: scaleX(1);
