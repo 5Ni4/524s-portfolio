@@ -1480,8 +1480,14 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
 .hero-title-base { display: block; white-space: nowrap; }
 .hero .hero-title-sweep {
   -webkit-text-stroke: 0.5px var(--navy);
-  clip-path: polygon(-45% -10%, -25% -10%, -5% 110%, -25% 110%);
-  color: var(--yellow);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(135deg, transparent 42%, var(--yellow) 47% 53%, transparent 58%);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: 300% 300%;
+  color: transparent;
   inset: 0;
   paint-order: stroke fill;
   pointer-events: none;
@@ -1489,8 +1495,8 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   white-space: nowrap;
 }
 @keyframes hero-title-band-sweep {
-  from { clip-path: polygon(-45% -10%, -25% -10%, -5% 110%, -25% 110%); }
-  to { clip-path: polygon(100% -10%, 120% -10%, 140% 110%, 120% 110%); }
+  from { background-position: 100% 100%; }
+  to { background-position: 0 0; }
 }
 @media (hover: hover) and (pointer: fine) {
   .hero h1:hover .hero-title-sweep {
@@ -1498,5 +1504,5 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-title-sweep { animation: none !important; }
+  .hero-title-sweep { animation: none !important; background-position: 100% 100%; }
 }
