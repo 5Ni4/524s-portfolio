@@ -1480,23 +1480,24 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
 .hero-title-base { display: block; white-space: nowrap; }
 .hero .hero-title-sweep {
   -webkit-text-stroke: 0.5px var(--navy);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: linear-gradient(45deg, transparent 42%, #ffe11a 47% 53%, transparent 58%);
-  background-position: 100% 100%;
-  background-repeat: no-repeat;
-  background-size: 300% 300%;
-  color: transparent;
+  color: #ffe11a;
   inset: 0;
+  -webkit-mask-image: linear-gradient(45deg, transparent 42%, #000 47% 53%, transparent 58%);
+  mask-image: linear-gradient(45deg, transparent 42%, #000 47% 53%, transparent 58%);
+  -webkit-mask-position: 100% 100%;
+  mask-position: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 300% 300%;
+  mask-size: 300% 300%;
   paint-order: stroke fill;
   pointer-events: none;
   position: absolute;
   white-space: nowrap;
 }
 @keyframes hero-title-band-sweep {
-  from { background-position: 100% 100%; }
-  to { background-position: 0 0; }
+  from { -webkit-mask-position: 100% 100%; mask-position: 100% 100%; }
+  to { -webkit-mask-position: 0 0; mask-position: 0 0; }
 }
 @media (hover: hover) and (pointer: fine) {
   .hero h1:hover .hero-title-sweep {
@@ -1504,5 +1505,9 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-title-sweep { animation: none !important; background-position: 100% 100%; }
+  .hero-title-sweep {
+    animation: none !important;
+    -webkit-mask-position: 100% 100%;
+    mask-position: 100% 100%;
+  }
 }
