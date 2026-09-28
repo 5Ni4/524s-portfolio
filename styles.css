@@ -1483,7 +1483,7 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(135deg, transparent 42%, var(--yellow) 47% 53%, transparent 58%);
+  background-image: linear-gradient(45deg, transparent 42%, var(--yellow) 47% 53%, transparent 58%);
   background-position: 100% 100%;
   background-repeat: no-repeat;
   background-size: 300% 300%;
@@ -1500,7 +1500,7 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
 }
 @media (hover: hover) and (pointer: fine) {
   .hero h1:hover .hero-title-sweep {
-    animation: hero-title-band-sweep 680ms cubic-bezier(.45, 0, .25, 1) both;
+    animation: hero-title-band-sweep 900ms cubic-bezier(.45, 0, .25, 1) both;
   }
 }
 @media (prefers-reduced-motion: reduce) {
