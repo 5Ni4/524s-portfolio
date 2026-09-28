@@ -1484,19 +1484,19 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   inset: 0;
   -webkit-mask-image: linear-gradient(45deg, transparent 42%, #000 47% 53%, transparent 58%);
   mask-image: linear-gradient(45deg, transparent 42%, #000 47% 53%, transparent 58%);
-  -webkit-mask-position: 100% 100%;
-  mask-position: 100% 100%;
+  -webkit-mask-position: 100% 0;
+  mask-position: 100% 0;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-size: 300% 300%;
-  mask-size: 300% 300%;
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
   paint-order: stroke fill;
   pointer-events: none;
   position: absolute;
   white-space: nowrap;
 }
 @keyframes hero-title-band-sweep {
-  from { -webkit-mask-position: 100% 100%; mask-position: 100% 100%; }
+  from { -webkit-mask-position: 100% 0; mask-position: 100% 0; }
   to { -webkit-mask-position: 0 0; mask-position: 0 0; }
 }
 @media (hover: hover) and (pointer: fine) {
@@ -1507,7 +1507,7 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
 @media (prefers-reduced-motion: reduce) {
   .hero-title-sweep {
     animation: none !important;
-    -webkit-mask-position: 100% 100%;
-    mask-position: 100% 100%;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
   }
 }
