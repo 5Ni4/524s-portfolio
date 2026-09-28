@@ -1425,3 +1425,21 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .cursor-dot-layer { display: none !important; }
 }
+
+/* Make the profile links respond clearly to hover and keyboard focus. */
+.hero-social { transition: color 180ms ease, border-color 180ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  html[data-design="simple"] .hero-social:hover { color: #a84319; }
+  html[data-design="simple"] .hero-social:hover { border-color: #a84319; }
+
+  html[data-design="colorful"] .hero-social:hover { color: #803117; }
+  html[data-design="colorful"] .hero-social:hover { border-color: #803117; }
+}
+html[data-design="simple"] .hero-social:focus-visible {
+  border-color: #a84319;
+  color: #a84319;
+}
+html[data-design="colorful"] .hero-social:focus-visible {
+  border-color: #803117;
+  color: #803117;
+}
