@@ -1512,3 +1512,21 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
     mask-position: 100% 0;
   }
 }
+
+/* Keep the illustration close and project cards compact at mid-sized widths. */
+@media (min-width: 640px) and (max-width: 760px) {
+  html[data-design="colorful"] .hero {
+    --hero-art-size: clamp(134px, 24vw, 160px);
+  }
+  html[data-design="colorful"] .hero-art {
+    right: clamp(120px, 22vw, 150px);
+  }
+  #works .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  #works .project-card {
+    justify-self: center;
+    max-width: 280px;
+    width: 100%;
+  }
+}
