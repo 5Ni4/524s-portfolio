@@ -1439,7 +1439,7 @@ html[data-design="colorful"] .hero-social {
   --social-underline-offset: -2px;
 }
 .hero-social::before {
-  background: #a84319;
+  background: var(--yellow);
   content: "";
   bottom: var(--social-underline-offset);
   height: var(--social-underline-thickness);
@@ -1451,7 +1451,6 @@ html[data-design="colorful"] .hero-social {
   transition: background-color 180ms ease, transform 300ms cubic-bezier(.45, 0, .55, 1);
   z-index: -1;
 }
-html[data-design="colorful"] .hero-social::before { background: #803117; }
 @media (hover: hover) and (pointer: fine) {
   .hero-social:hover::before {
     transform: scaleX(1);
