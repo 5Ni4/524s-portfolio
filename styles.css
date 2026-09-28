@@ -1599,18 +1599,19 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
   }
 }
 
-/* Reveal a warm text fill and yellow underline when hovering section headings. */
+/* Reveal an accessible aqua text fill and underline on a white backing. */
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #works-title,
   #creative-title,
   #hobby-title {
     --section-heading-progress: 0%;
+    --section-heading-accent: #08758d;
     background:
-      linear-gradient(90deg, var(--yellow) 50%, var(--navy) 0)
+      linear-gradient(90deg, var(--section-heading-accent) 50%, var(--navy) 0)
         calc(100% - var(--section-heading-progress)) 0 / 200% 100% no-repeat,
-      linear-gradient(var(--yellow) 0 0)
+      linear-gradient(var(--section-heading-accent) 0 0)
         0 100% / var(--section-heading-progress) 3px no-repeat,
-      linear-gradient(var(--navy) 0 0)
+      linear-gradient(#fff 0 0)
         0 0 / var(--section-heading-progress) 100% no-repeat;
     -webkit-background-clip: text, padding-box, padding-box;
     background-clip: text, padding-box, padding-box;
