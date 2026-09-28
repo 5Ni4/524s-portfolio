@@ -7,6 +7,7 @@
   const cards = document.querySelectorAll("#works .project-card");
   const resetBadge = (badge) => {
     if (!badge) return;
+    badge.closest(".project-card")?.classList.remove("is-badge-pointer-active");
     badge.style.removeProperty("--badge-rotate-x");
     badge.style.removeProperty("--badge-rotate-y");
   };
@@ -15,18 +16,29 @@
     const badge = card.querySelector(".project-preview");
     if (!badge) return;
 
-    badge.addEventListener("pointermove", (event) => {
+    card.addEventListener("pointermove", (event) => {
       if (event.pointerType !== "mouse" || reduceMotion.matches) return;
 
       const bounds = badge.getBoundingClientRect();
-      const x = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2));
-      const y = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2));
+      const radius = badge.offsetWidth / 2;
+      const offsetX = event.clientX - (bounds.left + bounds.width / 2);
+      const offsetY = event.clientY - (bounds.top + bounds.height / 2);
+      const responseRadius = radius + 42;
 
-      badge.style.setProperty("--badge-rotate-x", `${(y * 16).toFixed(1)}deg`);
-      badge.style.setProperty("--badge-rotate-y", `${(-x * 16).toFixed(1)}deg`);
+      if (Math.hypot(offsetX, offsetY) > responseRadius) {
+        resetBadge(badge);
+        return;
+      }
+
+      card.classList.add("is-badge-pointer-active");
+      const x = Math.max(-1, Math.min(1, offsetX / radius));
+      const y = Math.max(-1, Math.min(1, offsetY / radius));
+
+      badge.style.setProperty("--badge-rotate-x", `${(y * 24).toFixed(1)}deg`);
+      badge.style.setProperty("--badge-rotate-y", `${(-x * 24).toFixed(1)}deg`);
     }, { passive: true });
 
-    badge.addEventListener("pointerleave", () => resetBadge(badge));
+    card.addEventListener("pointerleave", () => resetBadge(badge));
   });
 
   reduceMotion.addEventListener("change", (event) => {
