@@ -1480,20 +1480,23 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
 .hero-title-base { display: block; white-space: nowrap; }
 .hero .hero-title-sweep {
   -webkit-text-stroke: 0.5px var(--navy);
-  clip-path: polygon(-110% -20%, -30% -20%, -10% 120%, -90% 120%);
+  clip-path: polygon(-45% -10%, -25% -10%, -5% 110%, -25% 110%);
   color: var(--yellow);
   inset: 0;
   paint-order: stroke fill;
   pointer-events: none;
   position: absolute;
-  transition: clip-path 520ms cubic-bezier(.45, 0, .25, 1);
   white-space: nowrap;
+}
+@keyframes hero-title-band-sweep {
+  from { clip-path: polygon(-45% -10%, -25% -10%, -5% 110%, -25% 110%); }
+  to { clip-path: polygon(100% -10%, 120% -10%, 140% 110%, 120% 110%); }
 }
 @media (hover: hover) and (pointer: fine) {
   .hero h1:hover .hero-title-sweep {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    animation: hero-title-band-sweep 680ms cubic-bezier(.45, 0, .25, 1) both;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-title-sweep { transition: none; }
+  .hero-title-sweep { animation: none !important; }
 }
