@@ -1095,7 +1095,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   place-items: center;
   position: relative;
   transform: perspective(850px)
-    translate3d(var(--badge-shift-x, 0px), var(--badge-shift-y, 0px), var(--badge-lift, 0px))
+    translateZ(var(--badge-lift, 0px))
     rotateX(var(--badge-rotate-x, 0deg))
     rotateY(var(--badge-rotate-y, 0deg))
     scale(var(--badge-scale, 1));
@@ -1104,15 +1104,12 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   width: clamp(118px, 10vw, 152px);
 }
 #works .project-preview::before {
-  background: radial-gradient(circle at var(--badge-light-x, 50%) var(--badge-light-y, 50%), rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.12) 22%, transparent 52%);
   border: 1px solid rgba(16, 45, 60, 0.22);
   border-radius: inherit;
   content: "";
   inset: 4px;
-  opacity: 0;
   pointer-events: none;
   position: absolute;
-  transition: opacity 180ms ease;
   z-index: 2;
 }
 #works .project-preview::after {
@@ -1148,12 +1145,10 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   --badge-lift: 12px;
   --badge-scale: 1.025;
 }
-#works .project-preview:hover::before { opacity: 1; }
 #works .project-card:focus-visible .project-preview {
   --badge-lift: 12px;
   --badge-scale: 1.025;
 }
-#works .project-card:focus-visible .project-preview::before { opacity: 1; }
 @keyframes project-badge-metallic-glint {
   0% { opacity: 0; transform: translateX(-140%); }
   16% { opacity: 1; }
@@ -1202,7 +1197,6 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   #works .project-card:hover .project-preview { box-shadow: inset 0 0 0 1px #fff, 0 0 0 1px rgba(16, 45, 60, 0.28); }
   #works .project-preview:hover::after,
   #works .project-card:focus-visible .project-preview::after { animation: none; }
-  #works .project-preview::before { transition: none; }
   .design-toggle { transition: none; }
   .design-toggle:hover { transform: none; }
 }
