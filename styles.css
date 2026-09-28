@@ -1412,8 +1412,18 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
 
 #creative .line-sticker-card .card-content,
 #creative .creative-clear-file-card .card-content {
+  align-self: start;
+  justify-self: start;
   margin: 0;
   max-width: none;
+  text-align: left;
+  width: 100%;
+}
+#creative .line-sticker-card h3,
+#creative .line-sticker-card .card-description,
+#creative .creative-clear-file-card h3,
+#creative .creative-clear-file-card .card-description {
+  text-align: left;
 }
 #creative .line-sticker-card h3,
 #creative .creative-clear-file-card h3 {
