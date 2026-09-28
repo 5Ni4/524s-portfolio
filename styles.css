@@ -1598,3 +1598,41 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
     right: clamp(120px, 22vw, 150px);
   }
 }
+
+/* Reveal a warm text fill and yellow underline when hovering section headings. */
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  #works-title,
+  #creative-title,
+  #hobby-title {
+    --section-heading-progress: 0%;
+    background:
+      linear-gradient(90deg, #5a2b0c 50%, var(--navy) 0)
+        calc(100% - var(--section-heading-progress)) 0 / 200% 100% no-repeat,
+      linear-gradient(var(--yellow) 0 0)
+        0 100% / var(--section-heading-progress) 3px no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    color: transparent;
+    transition: background-position 500ms ease, background-size 500ms ease;
+  }
+
+  html[data-design="colorful"] #works-title,
+  html[data-design="colorful"] #creative-title,
+  html[data-design="colorful"] #hobby-title {
+    border-bottom-color: transparent;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    #works-title:hover,
+    #creative-title:hover,
+    #hobby-title:hover {
+      --section-heading-progress: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #works-title,
+    #creative-title,
+    #hobby-title { transition: none; }
+  }
+}
