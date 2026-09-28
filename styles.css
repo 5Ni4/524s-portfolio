@@ -1470,7 +1470,7 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   transform-origin: left center;
 }
 
-/* Sweep yellow through the R-524 letterforms without coloring the surrounding area. */
+/* Slide yellow through the R-524 letterforms without coloring the surrounding area. */
 .hero h1 {
   isolation: isolate;
   max-width: 100%;
@@ -1480,17 +1480,18 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
 .hero-title-base { display: block; white-space: nowrap; }
 .hero .hero-title-sweep {
   -webkit-text-stroke: 0.5px var(--navy);
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  clip-path: polygon(-110% -20%, -30% -20%, -10% 120%, -90% 120%);
   color: var(--yellow);
   inset: 0;
   paint-order: stroke fill;
+  pointer-events: none;
   position: absolute;
-  transition: clip-path 380ms cubic-bezier(.45, 0, .55, 1);
+  transition: clip-path 520ms cubic-bezier(.45, 0, .25, 1);
   white-space: nowrap;
 }
 @media (hover: hover) and (pointer: fine) {
   .hero h1:hover .hero-title-sweep {
-    clip-path: polygon(100% 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
   }
 }
 @media (prefers-reduced-motion: reduce) {
