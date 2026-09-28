@@ -1605,8 +1605,10 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
   #creative-title,
   #hobby-title {
     --section-heading-progress: 0%;
+    isolation: isolate;
+    position: relative;
     background:
-      linear-gradient(90deg, #5a2b0c 50%, var(--navy) 0)
+      linear-gradient(90deg, var(--yellow) 50%, var(--navy) 0)
         calc(100% - var(--section-heading-progress)) 0 / 200% 100% no-repeat,
       linear-gradient(var(--yellow) 0 0)
         0 100% / var(--section-heading-progress) 3px no-repeat;
@@ -1614,6 +1616,21 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
     background-clip: text, padding-box;
     color: transparent;
     transition: background-position 500ms ease, background-size 500ms ease;
+  }
+
+  #works-title::before,
+  #creative-title::before,
+  #hobby-title::before {
+    background: var(--navy);
+    border-radius: 2px;
+    content: "";
+    inset: -4px -7px;
+    pointer-events: none;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 500ms ease;
+    z-index: -1;
   }
 
   html[data-design="colorful"] #works-title,
@@ -1628,11 +1645,20 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
     #hobby-title:hover {
       --section-heading-progress: 100%;
     }
+
+    #works-title:hover::before,
+    #creative-title:hover::before,
+    #hobby-title:hover::before {
+      transform: scaleX(1);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     #works-title,
     #creative-title,
-    #hobby-title { transition: none; }
+    #hobby-title,
+    #works-title::before,
+    #creative-title::before,
+    #hobby-title::before { transition: none; }
   }
 }
