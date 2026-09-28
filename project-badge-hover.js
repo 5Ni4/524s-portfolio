@@ -22,8 +22,8 @@
       const x = Math.max(-1, Math.min(1, ((event.clientX - bounds.left) / bounds.width - 0.5) * 2));
       const y = Math.max(-1, Math.min(1, ((event.clientY - bounds.top) / bounds.height - 0.5) * 2));
 
-      badge.style.setProperty("--badge-rotate-x", `${(y * 7).toFixed(1)}deg`);
-      badge.style.setProperty("--badge-rotate-y", `${(-x * 7).toFixed(1)}deg`);
+      badge.style.setProperty("--badge-rotate-x", `${(y * 16).toFixed(1)}deg`);
+      badge.style.setProperty("--badge-rotate-y", `${(-x * 16).toFixed(1)}deg`);
     }, { passive: true });
 
     badge.addEventListener("pointerleave", () => resetBadge(badge));
