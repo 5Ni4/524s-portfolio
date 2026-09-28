@@ -1426,22 +1426,26 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
   .cursor-dot-layer { display: none !important; }
 }
 
-/* Slide a highlighter mark under the profile links on hover or keyboard focus. */
+/* Sweep a colored underline beneath the profile links on hover or focus. */
 .hero-social {
   isolation: isolate;
   position: relative;
-  transition: color 180ms ease, border-color 180ms ease;
+  transition: border-color 180ms ease;
 }
 .hero-social::before {
-  background: var(--yellow);
+  background: #a84319;
   content: "";
-  inset: -3px -2px 3px;
+  bottom: 1px;
+  height: 2px;
+  left: 0;
   position: absolute;
   transform: scaleX(0);
   transform-origin: right center;
-  transition: transform 300ms cubic-bezier(.45, 0, .55, 1);
+  transition: background-color 180ms ease, transform 300ms cubic-bezier(.45, 0, .55, 1);
+  width: 100%;
   z-index: -1;
 }
+html[data-design="colorful"] .hero-social::before { background: #803117; }
 @media (hover: hover) and (pointer: fine) {
   .hero-social:hover::before {
     transform: scaleX(1);
@@ -1455,7 +1459,8 @@ html[data-design="colorful"] .hero-social:focus-visible {
   border-color: transparent;
   color: #102d3c;
 }
-.hero-social:focus-visible::before {
+html[data-design="simple"] .hero-social:focus-visible::before,
+html[data-design="colorful"] .hero-social:focus-visible::before {
   transform: scaleX(1);
   transform-origin: left center;
 }
