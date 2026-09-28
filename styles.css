@@ -1428,21 +1428,27 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
 
 /* Sweep a colored underline beneath the profile links on hover or focus. */
 .hero-social {
+  --social-underline-thickness: 1px;
+  --social-underline-offset: -1px;
   isolation: isolate;
   position: relative;
   transition: border-color 180ms ease;
 }
+html[data-design="colorful"] .hero-social {
+  --social-underline-thickness: 2px;
+  --social-underline-offset: -2px;
+}
 .hero-social::before {
   background: #a84319;
   content: "";
-  bottom: 1px;
-  height: 2px;
+  bottom: var(--social-underline-offset);
+  height: var(--social-underline-thickness);
   left: 0;
   position: absolute;
+  right: 0;
   transform: scaleX(0);
   transform-origin: right center;
   transition: background-color 180ms ease, transform 300ms cubic-bezier(.45, 0, .55, 1);
-  width: 100%;
   z-index: -1;
 }
 html[data-design="colorful"] .hero-social::before { background: #803117; }
