@@ -1003,7 +1003,7 @@ html[data-design="colorful"] .page-shell { overflow: clip; }
 }
 html[data-design="colorful"] .site-header { background: var(--cyan); }
 .header-controls { gap: 16px; }
-.site-nav { max-width: 100%; scrollbar-width: none; }
+.site-nav { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
 .site-nav::-webkit-scrollbar { display: none; }
 .site-nav a { white-space: nowrap; }
 #works,
