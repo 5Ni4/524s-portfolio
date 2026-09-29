@@ -1778,7 +1778,25 @@ html[data-design="simple"] .brand-mark { font-size: 20px; }
   box-shadow: 0 8px 20px rgba(29, 42, 51, 0.08);
   transform: translateY(-2px);
 }
-.speakerdeck-card-heading { width: 100%; }
+.speakerdeck-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+html[data-design="simple"] #speakerdeck .speakerdeck-card {
+  background: transparent !important;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  padding: 22px;
+}
+html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
+  background: #fafbfb !important;
+  box-shadow: none;
+  transform: none;
+}
 .speakerdeck-grid {
   align-items: start;
   display: grid;
