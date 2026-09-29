@@ -1252,7 +1252,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid #70797f;
   border-radius: 50%;
-  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   color: #20272c;
   cursor: pointer;
   display: grid;
