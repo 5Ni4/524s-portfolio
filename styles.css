@@ -1793,6 +1793,20 @@ html[data-design="simple"] .brand-mark { font-size: 20px; }
   box-shadow: 0 8px 20px rgba(29, 42, 51, 0.08);
   transform: translateY(-2px);
 }
+html[data-design="colorful"] #speakerdeck .speakerdeck-card {
+  background: var(--card-bg, var(--paper)) !important;
+  border: 2px solid var(--navy);
+  border-bottom-width: 4px;
+  border-radius: 16px;
+  box-shadow: 3px 3px 0 rgba(16, 45, 60, 0.35);
+  color: var(--card-foreground, var(--navy));
+  padding: 24px;
+}
+html[data-design="colorful"] #speakerdeck .speakerdeck-card:hover {
+  background: var(--card-bg, var(--paper)) !important;
+  box-shadow: 5px 5px 0 rgba(16, 45, 60, 0.45);
+  transform: translateY(-2px);
+}
 .speakerdeck-card-actions {
   display: flex;
   justify-content: flex-end;
@@ -1886,4 +1900,8 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
 
 @media (max-width: 600px) {
   #speakerdeck .speakerdeck-card { padding: 16px; }
+}
+
+@media (max-width: 760px) {
+  html[data-design="colorful"] #speakerdeck .speakerdeck-card { padding: 22px; }
 }
