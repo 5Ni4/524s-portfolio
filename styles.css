@@ -1715,7 +1715,7 @@ html[data-design="simple"] #hobby-title {
 }
 
 /* Match the colorful-mode section labels to the cyan-and-yellow reference. */
-html[data-design="colorful"] .section-heading > div { flex: 1; }
+html[data-design="colorful"] .section-heading > div { flex: 0 0 auto; }
 html[data-design="colorful"] #works-title,
 html[data-design="colorful"] #goods-title,
 html[data-design="colorful"] #speakerdeck-title,
@@ -1725,10 +1725,10 @@ html[data-design="colorful"] #hobby-title {
   -webkit-background-clip: border-box;
   border: 0;
   color: var(--navy);
-  display: block;
+  display: inline-block;
   padding: 18px 8px 20px;
   position: relative;
-  width: 100%;
+  width: fit-content;
 }
 html[data-design="colorful"] #works-title::after,
 html[data-design="colorful"] #goods-title::after,
@@ -1739,8 +1739,31 @@ html[data-design="colorful"] #hobby-title::after {
   content: "";
   height: 5px;
   left: 8px;
+  right: 8px;
   position: absolute;
-  width: clamp(92px, 18%, 134px);
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+@media (hover: hover) and (pointer: fine) {
+  html[data-design="colorful"] #works-title:hover::after,
+  html[data-design="colorful"] #goods-title:hover::after,
+  html[data-design="colorful"] #speakerdeck-title:hover::after,
+  html[data-design="colorful"] #hobby-title:hover::after {
+    animation: section-heading-underline 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+}
+@keyframes section-heading-underline {
+  0% { transform: scaleX(0); }
+  78% { transform: scaleX(1.08); }
+  100% { transform: scaleX(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-design="colorful"] #works-title::after,
+  html[data-design="colorful"] #goods-title::after,
+  html[data-design="colorful"] #speakerdeck-title::after,
+  html[data-design="colorful"] #hobby-title::after {
+    animation: none !important;
+  }
 }
 
 /* Give the white-theme header brand a little more room. */
