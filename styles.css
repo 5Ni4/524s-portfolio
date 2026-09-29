@@ -837,7 +837,7 @@ html[data-design="colorful"] .hero-art .art-card {
 }
 html[data-design="colorful"] .hero-art .art-card img { display: block; height: 100%; object-fit: contain; width: 100%; }
 html[data-design="colorful"] .works-section {
-  background: var(--cyan);
+  background: var(--paper);
   border-bottom: 0;
   border-top: 1px solid rgba(16, 45, 60, 0.28);
   color: var(--navy);
@@ -1695,6 +1695,33 @@ html[data-design="simple"] #creative-title,
 html[data-design="simple"] #hobby-title {
   transition: none;
 }
+}
+
+/* Match the colorful-mode section labels to the cyan-and-yellow reference. */
+html[data-design="colorful"] .section-heading > div { flex: 1; }
+html[data-design="colorful"] #works-title,
+html[data-design="colorful"] #creative-title,
+html[data-design="colorful"] #hobby-title {
+  background: var(--cyan);
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  border: 0;
+  color: var(--navy);
+  display: block;
+  padding: 18px 8px 20px;
+  position: relative;
+  width: 100%;
+}
+html[data-design="colorful"] #works-title::after,
+html[data-design="colorful"] #creative-title::after,
+html[data-design="colorful"] #hobby-title::after {
+  background: var(--yellow);
+  bottom: 6px;
+  content: "";
+  height: 5px;
+  left: 8px;
+  position: absolute;
+  width: clamp(92px, 18%, 134px);
 }
 
 /* Give the white-theme header brand a little more room. */
