@@ -1003,7 +1003,7 @@ html[data-design="colorful"] .page-shell { overflow: clip; }
 }
 html[data-design="colorful"] .site-header { background: var(--cyan); }
 .header-controls { gap: 16px; }
-.site-nav { max-width: 100%; scrollbar-width: none; }
+.site-nav { max-width: 100%; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; }
 .site-nav::-webkit-scrollbar { display: none; }
 .site-nav a { white-space: nowrap; }
 #works,
@@ -1661,6 +1661,7 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
 /* Keep the original section-title sizing and color with an aqua button fill. */
 html[data-design="simple"] #works-title,
 html[data-design="simple"] #creative-title,
+html[data-design="simple"] #speakerdeck-title,
 html[data-design="simple"] #hobby-title {
   background: linear-gradient(90deg, #08758d 50%, #fff 50%) 100% 0 / 200% 100% no-repeat;
   background-clip: border-box;
@@ -1682,6 +1683,7 @@ html[data-design="simple"] #hobby-title {
 @media (hover: hover) and (pointer: fine) {
   html[data-design="simple"] #works-title:hover,
   html[data-design="simple"] #creative-title:hover,
+  html[data-design="simple"] #speakerdeck-title:hover,
   html[data-design="simple"] #hobby-title:hover {
     background-position: 0 0;
     color: #fff;
@@ -1692,6 +1694,7 @@ html[data-design="simple"] #hobby-title {
 @media (prefers-reduced-motion: reduce) {
 html[data-design="simple"] #works-title,
 html[data-design="simple"] #creative-title,
+html[data-design="simple"] #speakerdeck-title,
 html[data-design="simple"] #hobby-title {
   transition: none;
 }
@@ -1751,4 +1754,113 @@ html[data-design="simple"] .brand-mark { font-size: 20px; }
     width: 62px;
   }
   html[data-design="simple"] .brand-mark { font-size: 17px; }
+}
+
+/* Show Speaker Deck presentations in the same browseable card style as posts. */
+#speakerdeck .speakerdeck-card {
+  align-items: stretch;
+  background: var(--paper) !important;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: none;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+  overflow: hidden;
+  padding: 22px;
+}
+#speakerdeck .speakerdeck-card::before { display: none; }
+#speakerdeck .speakerdeck-card:hover {
+  background: var(--paper) !important;
+  box-shadow: 0 8px 20px rgba(29, 42, 51, 0.08);
+  transform: translateY(-2px);
+}
+.speakerdeck-card-heading {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+}
+.speakerdeck-card-heading p { color: var(--navy-soft); font-size: 14px; margin: 0; }
+.speakerdeck-card-heading a {
+  color: var(--navy);
+  flex: 0 0 auto;
+  font-size: 13px;
+  text-underline-offset: 3px;
+}
+.speakerdeck-card-heading a:hover { text-decoration: underline; }
+.speakerdeck-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.speakerdeck-item {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+.speakerdeck-item:hover { box-shadow: 0 6px 16px rgba(29, 42, 51, 0.12); transform: translateY(-2px); }
+.speakerdeck-item:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+.speakerdeck-item > img {
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  width: 100%;
+}
+.speakerdeck-item-copy {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: space-between;
+  min-height: 90px;
+  padding: 12px;
+}
+.speakerdeck-item-title {
+  display: -webkit-box;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.speakerdeck-item-meta {
+  align-items: center;
+  color: var(--navy-soft);
+  display: flex;
+  font-size: 11px;
+  justify-content: space-between;
+}
+@media (max-width: 1060px) {
+  .speakerdeck-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: var(--navy-soft) transparent;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+  .speakerdeck-item {
+    flex: 0 0 max(326px, min(86vw, 380px));
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 600px) {
+  #speakerdeck .speakerdeck-card { padding: 16px; }
+  .speakerdeck-card-heading { align-items: flex-start; gap: 10px; }
+  .speakerdeck-card-heading p { font-size: 12px; }
+  .speakerdeck-card-heading a { font-size: 12px; }
 }
