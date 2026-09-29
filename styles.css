@@ -837,9 +837,9 @@ html[data-design="colorful"] .hero-art .art-card {
 }
 html[data-design="colorful"] .hero-art .art-card img { display: block; height: 100%; object-fit: contain; width: 100%; }
 html[data-design="colorful"] .works-section {
-  background: var(--paper);
+  background: var(--cyan);
   border-bottom: 0;
-  border-top: 1px solid rgba(16, 45, 60, 0.28);
+  border-top: 0;
   color: var(--navy);
 }
 html[data-design="colorful"] .section-heading h2 {
@@ -1718,6 +1718,7 @@ html[data-design="simple"] #hobby-title {
 html[data-design="colorful"] .section-heading > div { flex: 1; }
 html[data-design="colorful"] #works-title,
 html[data-design="colorful"] #goods-title,
+html[data-design="colorful"] #speakerdeck-title,
 html[data-design="colorful"] #hobby-title {
   background: var(--cyan);
   background-clip: border-box;
@@ -1731,6 +1732,7 @@ html[data-design="colorful"] #hobby-title {
 }
 html[data-design="colorful"] #works-title::after,
 html[data-design="colorful"] #goods-title::after,
+html[data-design="colorful"] #speakerdeck-title::after,
 html[data-design="colorful"] #hobby-title::after {
   background: var(--yellow);
   bottom: 6px;
