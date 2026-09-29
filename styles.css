@@ -1642,3 +1642,39 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
     #hobby-title { transition: none; }
   }
 }
+
+/* Give the header labels a little more presence. */
+.brand-mark { font-size: 18px; }
+.site-nav a { font-size: 16px; }
+.design-toggle { font-size: 15px; }
+
+@media (max-width: 760px) {
+  .brand-mark { font-size: 15px; }
+  .site-nav a { font-size: 13px; }
+  .design-toggle { font-size: 14px; }
+}
+
+@media (max-width: 420px) {
+  .site-nav a { font-size: 12px; }
+}
+
+/* Match the white-theme section titles to the blue-to-aqua reference banner. */
+html[data-design="simple"] .section-heading > div { flex: 1; min-width: 0; }
+html[data-design="simple"] #works-title,
+html[data-design="simple"] #creative-title,
+html[data-design="simple"] #hobby-title {
+  background: linear-gradient(105deg, #747cdd 0%, #79d0cf 100%);
+  background-clip: border-box;
+  -webkit-background-clip: border-box;
+  border: 0;
+  border-radius: 5px;
+  box-shadow: none;
+  color: #fff;
+  display: block;
+  font-size: clamp(18px, 2.6vw, 24px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.2;
+  padding: 18px 22px;
+  width: 100%;
+}
