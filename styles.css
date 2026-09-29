@@ -919,14 +919,14 @@ html[data-design="colorful"] .work-card:hover {
   .site-nav { grid-column: 1 / -1; grid-row: 2; justify-content: space-between; }
 }
 
-.creative-clear-file-card {
+.hobby-clear-file-card {
   cursor: default;
-  grid-column: auto;
+  grid-column: 1 / -1;
   min-height: 0;
-  padding: 22px 0;
+  padding: 22px;
 }
-.creative-clear-file-card .card-content { margin: 0; max-width: none; }
-.creative-clear-file-card .card-description { margin-top: 13px; max-width: 680px; }
+.hobby-clear-file-card .card-content { margin: 0; max-width: none; }
+.hobby-clear-file-card .card-description { max-width: 680px; }
 .clear-file-gallery { display: grid; gap: 16px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-inline: 0; max-width: 932px; width: 100%; }
 .clear-file-gallery figure { margin: 0; min-width: 0; }
 .clear-file-gallery img {
@@ -980,7 +980,6 @@ html[data-design="colorful"] .work-card:hover {
 .clear-file-flip-back { transform: rotateY(180deg); }
 
 @media (max-width: 760px) {
-  .creative-clear-file-card { margin-bottom: 16px; padding: 18px 0; }
   .clear-file-gallery { gap: 15px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
@@ -1203,6 +1202,17 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   padding: 22px;
 }
 #hobby .instagram-hobby-card .card-content { margin: 0; max-width: none; }
+#hobby .hobby-clear-file-card {
+  align-items: stretch;
+  display: grid;
+  gap: 16px;
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+  overflow: visible;
+  padding: 22px;
+}
+#hobby .hobby-clear-file-card .card-content { margin: 0; max-width: none; }
 .instagram-card-heading {
   align-items: center;
   display: flex;
@@ -1429,8 +1439,8 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   .works-group[id] { scroll-margin-top: 100px; }
 }
 
-#creative .line-sticker-card .card-content,
-#creative .creative-clear-file-card .card-content {
+#goods .line-sticker-card .card-content,
+#hobby .hobby-clear-file-card .card-content {
   align-self: start;
   justify-self: start;
   margin: 0;
@@ -1438,28 +1448,31 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   text-align: left;
   width: 100%;
 }
-#creative .line-sticker-card h3,
-#creative .line-sticker-card .card-description,
-#creative .creative-clear-file-card h3,
-#creative .creative-clear-file-card .card-description {
+#goods .line-sticker-card h3,
+#goods .line-sticker-card .card-description,
+#hobby .hobby-clear-file-card h3,
+#hobby .hobby-clear-file-card .card-description {
   text-align: left;
 }
-#creative .line-sticker-card h3,
-#creative .creative-clear-file-card h3 {
+#goods .line-sticker-card h3 {
   font-size: clamp(1.4rem, 2vw, 1.7rem);
   line-height: 1.25;
 }
-html[data-design="colorful"] #creative .line-sticker-card {
+#hobby .hobby-clear-file-card h3 {
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  line-height: 1.25;
+}
+html[data-design="colorful"] #goods .line-sticker-card {
   --card-bg: #f3eedb;
   --card-foreground: var(--navy);
 }
-html[data-design="colorful"] #creative .creative-clear-file-card {
+html[data-design="colorful"] #hobby .hobby-clear-file-card {
   --card-bg: #edf2ef;
   --card-foreground: var(--navy);
 }
 
 @media (min-width: 761px) {
-  #creative .line-sticker-card .sticker-ogps {
+  #goods .line-sticker-card .sticker-ogps {
     gap: 16px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     justify-content: center;
@@ -1467,13 +1480,13 @@ html[data-design="colorful"] #creative .creative-clear-file-card {
     max-width: 440px;
     width: 100%;
   }
-  #creative .line-sticker-card .sticker-ogp { max-width: none; }
-  #creative .clear-file-gallery { gap: 12px; max-width: 100%; }
-  #creative .clear-file-flip-item { max-width: none; }
+  #goods .line-sticker-card .sticker-ogp { max-width: none; }
+  #hobby .clear-file-gallery { gap: 12px; max-width: 100%; }
+  #hobby .clear-file-flip-item { max-width: none; }
 }
 
 @media (min-width: 761px) and (max-width: 1000px) {
-  #creative .works-grid { grid-template-columns: minmax(0, 1fr); }
+  #goods .works-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Small, short-lived color flecks follow the mouse in the colorful theme. */
@@ -1606,7 +1619,7 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
 /* Reveal an accessible aqua text fill and underline on a white backing. */
 @supports (background-clip: text) or (-webkit-background-clip: text) {
   #works-title,
-  #creative-title,
+  #goods-title,
   #hobby-title {
     --section-heading-progress: 0%;
     --section-heading-accent: #08758d;
@@ -1624,14 +1637,14 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
   }
 
   html[data-design="colorful"] #works-title,
-  html[data-design="colorful"] #creative-title,
+  html[data-design="colorful"] #goods-title,
   html[data-design="colorful"] #hobby-title {
     border-bottom-color: transparent;
   }
 
   @media (hover: hover) and (pointer: fine) {
     #works-title:hover,
-    #creative-title:hover,
+    #goods-title:hover,
     #hobby-title:hover {
       --section-heading-progress: 100%;
     }
@@ -1639,7 +1652,7 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
 
   @media (prefers-reduced-motion: reduce) {
     #works-title,
-    #creative-title,
+    #goods-title,
     #hobby-title { transition: none; }
   }
 }
@@ -1661,7 +1674,7 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
 
 /* Keep the original section-title sizing and color with an aqua button fill. */
 html[data-design="simple"] #works-title,
-html[data-design="simple"] #creative-title,
+html[data-design="simple"] #goods-title,
 html[data-design="simple"] #speakerdeck-title,
 html[data-design="simple"] #hobby-title {
   background: linear-gradient(90deg, #08758d 50%, #fff 50%) 100% 0 / 200% 100% no-repeat;
@@ -1683,7 +1696,7 @@ html[data-design="simple"] #hobby-title {
 
 @media (hover: hover) and (pointer: fine) {
   html[data-design="simple"] #works-title:hover,
-  html[data-design="simple"] #creative-title:hover,
+  html[data-design="simple"] #goods-title:hover,
   html[data-design="simple"] #speakerdeck-title:hover,
   html[data-design="simple"] #hobby-title:hover {
     background-position: 0 0;
@@ -1694,7 +1707,7 @@ html[data-design="simple"] #hobby-title {
 
 @media (prefers-reduced-motion: reduce) {
 html[data-design="simple"] #works-title,
-html[data-design="simple"] #creative-title,
+html[data-design="simple"] #goods-title,
 html[data-design="simple"] #speakerdeck-title,
 html[data-design="simple"] #hobby-title {
   transition: none;
@@ -1704,7 +1717,7 @@ html[data-design="simple"] #hobby-title {
 /* Match the colorful-mode section labels to the cyan-and-yellow reference. */
 html[data-design="colorful"] .section-heading > div { flex: 1; }
 html[data-design="colorful"] #works-title,
-html[data-design="colorful"] #creative-title,
+html[data-design="colorful"] #goods-title,
 html[data-design="colorful"] #hobby-title {
   background: var(--cyan);
   background-clip: border-box;
@@ -1717,7 +1730,7 @@ html[data-design="colorful"] #hobby-title {
   width: 100%;
 }
 html[data-design="colorful"] #works-title::after,
-html[data-design="colorful"] #creative-title::after,
+html[data-design="colorful"] #goods-title::after,
 html[data-design="colorful"] #hobby-title::after {
   background: var(--yellow);
   bottom: 6px;
