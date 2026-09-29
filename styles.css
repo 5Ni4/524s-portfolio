@@ -1262,6 +1262,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   padding: 0 0 3px;
   width: 44px;
 }
+.instagram-scroll-control[hidden] { display: none; }
 .instagram-scroll-control:hover { background: #f0f3f4; }
 .instagram-scroll-control:focus-visible { outline: 3px solid #20272c; outline-offset: 3px; }
 .instagram-grid .instagram-media {
