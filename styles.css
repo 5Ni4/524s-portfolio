@@ -1633,7 +1633,7 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
     --hero-art-size: clamp(134px, 24vw, 160px);
   }
   html[data-design="colorful"] .hero-art {
-    right: clamp(120px, 22vw, 150px);
+    right: 20px;
   }
 }
 
