@@ -151,15 +151,13 @@ a:focus-visible {
 .art-card img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
 .hero-speech-bubble {
   height: auto;
-  left: calc(50% - 290px);
+  left: auto;
   pointer-events: none;
   position: absolute;
+  right: calc(50% + 29px);
   top: 42px;
   width: clamp(180px, 18vw, 310px);
   z-index: 3;
-}
-@media (min-width: 1440px) {
-  .hero-speech-bubble { left: calc(50% - 230px); }
 }
 .art-orbit { border: 1px solid var(--cyan-light); border-radius: 50%; position: absolute; }
 .orbit-one { height: 480px; right: 0; top: 8px; transform: rotate(32deg); width: 370px; }
@@ -831,7 +829,7 @@ html[data-design="colorful"] .hero-social {
   padding: 0 0 4px;
 }
 html[data-design="colorful"] .hero-social:hover { background: transparent; }
-html[data-design="colorful"] .hero-art { min-height: 0; position: relative; }
+html[data-design="colorful"] .hero-art { max-width: 500px; min-height: 0; position: relative; }
 html[data-design="colorful"] .hero-art .art-card {
   background: var(--cyan);
   aspect-ratio: 1;
@@ -848,6 +846,8 @@ html[data-design="colorful"] .hero-art .art-card {
   width: 100%;
 }
 html[data-design="colorful"] .hero-art .art-card img { display: block; height: 100%; object-fit: contain; width: 100%; }
+/* The character starts about 25.4% into this square artwork; keep the bubble's overlap fixed there. */
+html[data-design="colorful"] .hero-speech-bubble { right: calc(100% - 25.4% - 72px); }
 html[data-design="colorful"] .works-section {
   background: var(--cyan);
   border-bottom: 0;
@@ -1530,7 +1530,8 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
 
 @media (max-width: 760px) {
   .hero-speech-bubble {
-    left: -26%;
+    left: auto;
+    right: calc(100% - 25.4% - 72px);
     top: -48px;
     width: clamp(105px, 20vw, 150px);
   }
