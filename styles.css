@@ -151,7 +151,7 @@ a:focus-visible {
 .art-card img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
 .hero-speech-bubble {
   height: auto;
-  left: calc(50% - 330px);
+  left: calc(50% - 290px);
   pointer-events: none;
   position: absolute;
   top: 42px;
@@ -159,7 +159,7 @@ a:focus-visible {
   z-index: 3;
 }
 @media (min-width: 1440px) {
-  .hero-speech-bubble { left: calc(50% - 270px); }
+  .hero-speech-bubble { left: calc(50% - 230px); }
 }
 .art-orbit { border: 1px solid var(--cyan-light); border-radius: 50%; position: absolute; }
 .orbit-one { height: 480px; right: 0; top: 8px; transform: rotate(32deg); width: 370px; }
