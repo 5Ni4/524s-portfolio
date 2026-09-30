@@ -149,15 +149,6 @@ a:focus-visible {
 .art-card { background: var(--cyan); border: 2px solid var(--navy); border-radius: 48% 52% 46% 54% / 46% 44% 56% 54%; box-shadow: var(--shadow); height: 425px; left: 50%; overflow: hidden; position: absolute; top: 47px; transform: translateX(-45%) rotate(4deg); width: 370px; }
 .art-card::after { background: var(--yellow); border-radius: 50%; content: ''; height: 90px; left: -22px; position: absolute; top: 70px; width: 90px; }
 .art-card img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
-.hero-speech-bubble {
-  height: auto;
-  left: calc(50% - 330px);
-  pointer-events: none;
-  position: absolute;
-  top: -44px;
-  width: clamp(240px, 16.2vw, 310px);
-  z-index: 3;
-}
 .art-orbit { border: 1px solid var(--cyan-light); border-radius: 50%; position: absolute; }
 .orbit-one { height: 480px; right: 0; top: 8px; transform: rotate(32deg); width: 370px; }
 .orbit-two { border-color: var(--yellow-soft); height: 510px; left: 51px; top: 7px; transform: rotate(-29deg); width: 345px; }
@@ -1521,14 +1512,6 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
   100% {
     opacity: 0;
     transform: translate(calc(-50% + var(--dot-drift-x)), calc(-50% + var(--dot-drift-y))) scale(.55);
-  }
-}
-
-@media (max-width: 760px) {
-  .hero-speech-bubble {
-    left: -55px;
-    top: -68px;
-    width: min(156px, 40vw);
   }
 }
 @media (prefers-reduced-motion: reduce) {
