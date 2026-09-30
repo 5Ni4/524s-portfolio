@@ -154,9 +154,12 @@ a:focus-visible {
   left: calc(50% - 330px);
   pointer-events: none;
   position: absolute;
-  top: -44px;
+  top: 42px;
   width: clamp(180px, 18vw, 310px);
   z-index: 3;
+}
+@media (min-width: 1440px) {
+  .hero-speech-bubble { left: calc(50% - 270px); }
 }
 .art-orbit { border: 1px solid var(--cyan-light); border-radius: 50%; position: absolute; }
 .orbit-one { height: 480px; right: 0; top: 8px; transform: rotate(32deg); width: 370px; }
