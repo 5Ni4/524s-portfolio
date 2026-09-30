@@ -1634,6 +1634,7 @@ html[data-design="colorful"] .hero .hero-title-sweep { color: #ffe11a; }
   }
   html[data-design="colorful"] .hero-art {
     right: 20px;
+    top: 78px;
   }
 }
 
