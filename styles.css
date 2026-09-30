@@ -155,7 +155,7 @@ a:focus-visible {
   pointer-events: none;
   position: absolute;
   top: -44px;
-  width: clamp(240px, 16.2vw, 310px);
+  width: clamp(180px, 18vw, 310px);
   z-index: 3;
 }
 .art-orbit { border: 1px solid var(--cyan-light); border-radius: 50%; position: absolute; }
@@ -1527,9 +1527,9 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
 
 @media (max-width: 760px) {
   .hero-speech-bubble {
-    left: -55px;
+    left: -26%;
     top: -68px;
-    width: min(156px, 40vw);
+    width: clamp(105px, 20vw, 150px);
   }
 }
 @media (prefers-reduced-motion: reduce) {
