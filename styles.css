@@ -149,6 +149,7 @@ a:focus-visible {
 .art-card { background: var(--cyan); border: 2px solid var(--navy); border-radius: 48% 52% 46% 54% / 46% 44% 56% 54%; box-shadow: var(--shadow); height: 425px; left: 50%; overflow: hidden; position: absolute; top: 47px; transform: translateX(-45%) rotate(4deg); width: 370px; }
 .art-card::after { background: var(--yellow); border-radius: 50%; content: ''; height: 90px; left: -22px; position: absolute; top: 70px; width: 90px; }
 .art-card img { height: 100%; object-fit: cover; object-position: center; width: 100%; }
+/* Reserved for the commented-out "524 ってなに？" bubble in index.html. */
 .hero-speech-bubble {
   height: auto;
   left: auto;
@@ -383,7 +384,7 @@ body { background: var(--paper); color: var(--ink); }
 .work-card {
   background: var(--paper) !important;
   border: 1px solid var(--line);
-  border-radius: 12px;
+  border-radius: 6px;
   box-shadow: none;
   color: var(--navy);
   min-height: 280px;
@@ -786,12 +787,21 @@ html[data-design="colorful"] .brand-mark {
   padding: 0;
   width: auto;
 }
-html[data-design="colorful"] .site-nav a { color: var(--navy); }
-html[data-design="colorful"] .site-nav a:hover {
+html[data-design="colorful"] .site-nav a {
   color: var(--navy);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
+  position: relative;
+  text-decoration: none;
+}
+html[data-design="colorful"] .site-nav a::after {
+  background: var(--yellow);
+  bottom: -9px;
+  content: "";
+  height: 5px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
 }
 html[data-design="colorful"] .design-toggle:focus-visible,
 html[data-design="colorful"] a:focus-visible { outline: 3px solid var(--navy); outline-offset: 4px; }
@@ -1059,7 +1069,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   .clear-file-gallery::-webkit-scrollbar { height: 5px; }
   .clear-file-gallery::-webkit-scrollbar-thumb { background: var(--navy-soft); border-radius: 999px; }
   .clear-file-gallery::-webkit-scrollbar-track { background: transparent; }
-  .clear-file-flip-item { flex: 0 0 min(76vw, 300px); scroll-snap-align: start; }
+  .clear-file-flip-item { flex: 0 0 min(53.2vw, 210px); scroll-snap-align: start; }
 }
 
 /* Give each project a small, collectible can-badge icon. */
@@ -1094,25 +1104,39 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   transform: translateY(-2px);
 }
 #works .project-card:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+#works .badge-stage {
+  aspect-ratio: 1;
+  display: grid;
+  isolation: isolate;
+  margin: 0 auto;
+  place-items: center;
+  perspective: 850px;
+  position: relative;
+  width: clamp(118px, 10vw, 152px);
+}
 #works .project-preview {
+  --badge-rise: 0px;
+  --badge-scale: 1;
   aspect-ratio: 1;
   background-color: var(--paper);
-  border: 0;
+  border: 5px solid #d4dcde;
   border-radius: 50%;
-  box-shadow: none;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.24), 0 7px 16px rgba(16, 45, 60, 0.18);
   display: grid;
   isolation: isolate;
   place-items: center;
   position: relative;
   transform-style: preserve-3d;
   transform: perspective(700px)
+    translateY(var(--badge-rise, 0px))
     translateZ(var(--badge-lift, 0px))
     rotateX(var(--badge-rotate-x, 0deg))
     rotateY(var(--badge-rotate-y, 0deg))
     scale(var(--badge-scale, 1));
   transform-origin: center;
   transition: box-shadow 180ms ease, transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1);
-  width: clamp(118px, 10vw, 152px);
+  width: 88%;
+  z-index: 1;
 }
 #works .project-preview::after {
   background:
@@ -1142,17 +1166,21 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   z-index: 4;
 }
 #works .project-card:hover .project-preview {
-  box-shadow: 0 5px 12px rgba(16, 45, 60, 0.14);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.24), 0 11px 22px rgba(16, 45, 60, 0.2);
+  --badge-rise: -5px;
+  --badge-scale: 1.05;
 }
 #works .project-card.is-badge-pointer-active .project-preview {
-  --badge-lift: 12px;
-  --badge-scale: 1.025;
+  --badge-rise: -5px;
+  --badge-lift: 10px;
+  --badge-scale: 1.04;
 }
 #works .project-card.is-badge-pointer-active .project-app-icon,
 #works .project-card:focus-visible .project-app-icon { transform: translateZ(18px); }
 #works .project-card:focus-visible .project-preview {
-  --badge-lift: 12px;
-  --badge-scale: 1.025;
+  --badge-rise: -5px;
+  --badge-lift: 10px;
+  --badge-scale: 1.04;
 }
 #works .project-card .card-content {
   align-items: center;
@@ -1183,7 +1211,8 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   #works .project-card:nth-child(4),
   #works .project-card:nth-child(5) { grid-column: auto; }
   #works .project-card:last-child { grid-column: 1 / -1; justify-self: center; max-width: 180px; }
-  #works .project-preview { width: clamp(112px, 31vw, 132px); }
+  #works .badge-stage { width: clamp(112px, 31vw, 132px); }
+  #works .project-preview { width: 88%; }
 }
 @media (prefers-reduced-motion: reduce) {
   #works .project-card:hover { transform: none; }
@@ -1191,7 +1220,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   #works .project-card:focus-visible .project-preview { transform: none; }
   #works .project-card:hover .project-app-icon,
   #works .project-card:focus-visible .project-app-icon { transform: none; transition: none; }
-  #works .project-card:hover .project-preview { box-shadow: 0 5px 12px rgba(16, 45, 60, 0.14); }
+  #works .project-card:hover .project-preview { box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.24), 0 7px 16px rgba(16, 45, 60, 0.18); }
   .design-toggle { transition: none; }
   .design-toggle:hover { transform: none; }
 }
@@ -1293,6 +1322,27 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   min-width: min(326px, 100%) !important;
   width: 100% !important;
 }
+.instagram-polaroid {
+  background: #fffdf7;
+  border: 1px solid rgba(29, 42, 51, 0.18);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  min-width: 0;
+  padding: 10px 10px 6px;
+  transform: rotate(var(--polaroid-tilt, 0deg));
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  width: 100%;
+}
+.instagram-polaroid:nth-child(3n + 1) { --polaroid-tilt: -1.2deg; }
+.instagram-polaroid:nth-child(3n + 2) { --polaroid-tilt: 0.8deg; }
+.instagram-polaroid:nth-child(3n) { --polaroid-tilt: -0.4deg; }
+.instagram-polaroid:hover {
+  box-shadow: none;
+  transform: rotate(0deg);
+  z-index: 1;
+}
 .instagram-photo {
   aspect-ratio: 3 / 2;
   background: var(--paper);
@@ -1300,6 +1350,18 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   overflow: hidden;
   position: relative;
   width: 100%;
+}
+.instagram-polaroid-caption {
+  align-items: center;
+  color: var(--navy-soft);
+  display: flex;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  justify-content: space-between;
+  letter-spacing: 0.06em;
+  min-height: 38px;
+  padding: 10px 3px 2px;
 }
 .instagram-photo > .instagram-media,
 .instagram-photo > iframe {
@@ -1313,16 +1375,19 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
   width: 100% !important;
   border: 0 !important;
 }
+.instagram-photo > .instagram-media > a { display: none; }
 .instagram-status { color: var(--navy-soft); font-size: 12px; line-height: 1.5; margin: 0; min-height: 0; }
-.instagram-fallback {
+.instagram-fallback-image {
   align-items: center;
   aspect-ratio: 3 / 2;
-  border: 1px solid var(--line);
+  background: var(--cream);
+  border: 1px dashed var(--line);
   color: var(--navy-soft);
-  display: flex;
+  display: grid;
   font-size: 13px;
   justify-content: center;
   text-align: center;
+  place-items: center;
   text-underline-offset: 3px;
 }
 @media (max-width: 1060px) {
@@ -1338,9 +1403,9 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
     -webkit-overflow-scrolling: touch;
   }
   #hobby .instagram-scroll-navigation:not([hidden]) { display: flex; }
-  #hobby .instagram-photo,
-  #hobby .instagram-fallback {
-    flex: 0 0 max(326px, min(86vw, 380px));
+  #hobby .instagram-polaroid {
+    flex: 0 0 min(100%, 380px);
+    max-width: 100%;
     scroll-snap-align: start;
   }
 }
@@ -1415,7 +1480,7 @@ html[data-design="colorful"] .works-section { padding-bottom: 72px; padding-top:
 
 @media (prefers-reduced-motion: no-preference) {
   html[data-design="colorful"] .hero-art .art-card {
-    animation: mascot-float-preview 5.24s ease-in-out infinite;
+    animation: mascot-float-preview 3s ease-in-out infinite;
   }
 }
 
@@ -1773,6 +1838,12 @@ html[data-design="colorful"] #hobby-title::after {
   html[data-design="colorful"] #hobby-title:hover::after {
     animation: section-heading-underline 520ms cubic-bezier(0.2, 0.7, 0.2, 1);
   }
+  html[data-design="colorful"] .site-nav a:hover::after {
+    animation: section-heading-underline 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+}
+html[data-design="colorful"] .site-nav a:focus-visible::after {
+  animation: section-heading-underline 520ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 @keyframes section-heading-underline {
   0% { transform: scaleX(0); }
@@ -1786,6 +1857,9 @@ html[data-design="colorful"] #hobby-title::after {
   html[data-design="colorful"] #hobby-title::after {
     animation: none !important;
   }
+  html[data-design="colorful"] .site-nav a::after { animation: none !important; }
+  html[data-design="colorful"] .site-nav a:hover::after,
+  html[data-design="colorful"] .site-nav a:focus-visible::after { transform: scaleX(1); }
 }
 
 /* Give the white-theme header brand a little more room. */
@@ -1842,7 +1916,7 @@ html[data-design="colorful"] #speakerdeck .speakerdeck-card {
   background: var(--card-bg, var(--paper)) !important;
   border: 2px solid var(--navy);
   border-bottom-width: 4px;
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: 3px 3px 0 rgba(16, 45, 60, 0.35);
   color: var(--card-foreground, var(--navy));
   padding: 24px;
@@ -1874,27 +1948,47 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
 .speakerdeck-grid {
   align-items: start;
   display: grid;
-  gap: 14px;
+  gap: 30px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   min-width: 0;
   width: 100%;
 }
 .speakerdeck-item {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  background: #fffdf4;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 7px 16px rgba(16, 45, 60, 0.18);
   color: var(--navy);
   display: flex;
   flex-direction: column;
   min-width: 0;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
   text-decoration: none;
-  transition: box-shadow 180ms ease, transform 180ms ease;
+  transition: box-shadow 220ms ease, transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
 }
-.speakerdeck-item:hover { box-shadow: 0 6px 16px rgba(29, 42, 51, 0.12); transform: translateY(-2px); }
+.speakerdeck-item::before {
+  background: url("assets/speakerdeck-binding.svg") 0 0 / 34px 22px repeat-y;
+  bottom: 8px;
+  content: "";
+  filter: drop-shadow(0 1px 1px rgba(16, 45, 60, 0.28));
+  left: -25px;
+  pointer-events: none;
+  position: absolute;
+  top: 8px;
+  width: 34px;
+  z-index: 3;
+}
+.speakerdeck-item:hover {
+  box-shadow: 0 10px 22px rgba(16, 45, 60, 0.22);
+  transform: translate(-2px, -3px) rotate(-0.4deg);
+  z-index: 1;
+}
 .speakerdeck-item:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
 .speakerdeck-item > img {
   aspect-ratio: 16 / 9;
+  border-radius: 6px 6px 0 0;
   display: block;
   object-fit: cover;
   width: 100%;
@@ -1927,17 +2021,19 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
 @media (max-width: 1060px) {
   .speakerdeck-grid {
     display: flex;
-    gap: 14px;
+    gap: 30px;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 0 0 8px;
+    padding: 4px 16px 12px 28px;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline-start: 28px;
     scrollbar-color: var(--navy-soft) transparent;
     scrollbar-width: thin;
     -webkit-overflow-scrolling: touch;
   }
   .speakerdeck-item {
-    flex: 0 0 max(326px, min(86vw, 380px));
+    flex: 0 0 min(100%, 380px);
+    max-width: 100%;
     scroll-snap-align: start;
   }
   .speakerdeck-scroll-navigation:not([hidden]) { display: flex; }
@@ -1949,4 +2045,44 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
 
 @media (max-width: 760px) {
   html[data-design="colorful"] #speakerdeck .speakerdeck-card { padding: 22px; }
+}
+
+/* Give the card contents room on narrow phones instead of clipping titles or controls. */
+@media (max-width: 600px) {
+  #speakerdeck .speakerdeck-card,
+  #hobby .instagram-hobby-card { padding: clamp(12px, 4vw, 16px); }
+  html[data-design="colorful"] #speakerdeck .speakerdeck-card,
+  html[data-design="colorful"] #hobby .instagram-hobby-card { padding: clamp(12px, 5vw, 18px); }
+
+  .speakerdeck-grid {
+    gap: 30px;
+    padding-right: 8px;
+  }
+  .speakerdeck-item-copy {
+    gap: 8px;
+    min-height: 0;
+    padding: clamp(9px, 3vw, 12px);
+  }
+  .speakerdeck-item-title {
+    display: block;
+    font-size: clamp(12px, 3.6vw, 14px);
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+
+  .instagram-card-heading { gap: clamp(8px, 2.5vw, 14px); }
+  .instagram-card-copy .card-description {
+    font-size: clamp(10px, 3.3vw, 12px);
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+  .instagram-card-actions { gap: 6px; }
+  .instagram-card-action {
+    height: clamp(38px, 12vw, 44px);
+    width: clamp(38px, 12vw, 44px);
+  }
+  .instagram-card-action svg {
+    height: clamp(19px, 6vw, 23px);
+    width: clamp(19px, 6vw, 23px);
+  }
 }

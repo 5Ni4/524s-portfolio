@@ -10,6 +10,44 @@
     "DHpA1oZy4rT", "DHkzi-KyoCG", "DHcQsoyBJ2S", "DHD4OVtyk4x",
     "DG4IbRuy54j", "DG0YpFgyi5j", "DGr9QmByRKd", "DGiNSHISt1k"
   ];
+  const instagramPostDates = {
+    "DIYSW4AStBI": "2025-04-13",
+    "DISSq33StOn": "2025-04-10",
+    "DIPo4V8yYS8": "2025-04-09",
+    "DPnVjpNkc7e": "2025-10-09",
+    "DMc6jL3Slzd": "2025-07-23",
+    "DMIXK75Sp6a": "2025-07-15",
+    "DL2Tto7yr4Z": "2025-07-08",
+    "DJmMSoeSXHE": "2025-05-13",
+    "DJeRcSVSLu_": "2025-05-10",
+    "DJZDLUqSYVR": "2025-05-08",
+    "DJSuTLKSWuv": "2025-05-05",
+    "DJRKTZhS3Mr": "2025-05-05",
+    "DJQPQBnyWbZ": "2025-05-04",
+    "DJO60OSS0nL": "2025-05-04",
+    "DJJpCi6yGDL": "2025-05-02",
+    "DJCJwANSMQ4": "2025-04-29",
+    "DI1ABwcyCed": "2025-04-24",
+    "DItefReyuDh": "2025-04-21",
+    "DId6OY6SXd5": "2025-04-15",
+    "DId3l6Oyz_O": "2025-04-15",
+    "DIbhFhKSkSV": "2025-04-14",
+    "DINEnBpyLd2": "2025-04-08",
+    "DIJWF1MS_Ol": "2025-04-07",
+    "DIGmz0_yLIU": "2025-04-06",
+    "DIB80lpS17d": "2025-04-04",
+    "DH52i5oSqx_": "2025-04-01",
+    "DH17tmHSDTX": "2025-03-30",
+    "DHvgEGqy7-z": "2025-03-28",
+    "DHpA1oZy4rT": "2025-03-25",
+    "DHkzi-KyoCG": "2025-03-24",
+    "DHcQsoyBJ2S": "2025-03-20",
+    "DHD4OVtyk4x": "2025-03-11",
+    "DG4IbRuy54j": "2025-03-06",
+    "DG0YpFgyi5j": "2025-03-05",
+    "DGr9QmByRKd": "2025-03-01",
+    "DGiNSHISt1k": "2025-02-26"
+  };
 
   const instagramPosts = document.querySelector("#instagram-posts");
   const instagramStatus = document.querySelector("#instagram-status");
@@ -23,11 +61,9 @@
     if (!scrollNavigation || !previousPostButton || !nextPostButton) return;
     const hasOverflow = window.matchMedia("(max-width: 1060px)").matches
       && instagramPosts.scrollWidth > instagramPosts.clientWidth + 4;
-    const atStart = instagramPosts.scrollLeft <= 4;
-    const atEnd = instagramPosts.scrollLeft + instagramPosts.clientWidth >= instagramPosts.scrollWidth - 4;
     scrollNavigation.hidden = !hasOverflow;
-    previousPostButton.hidden = !hasOverflow || atStart;
-    nextPostButton.hidden = !hasOverflow || atEnd;
+    previousPostButton.hidden = !hasOverflow;
+    nextPostButton.hidden = !hasOverflow;
   }
 
   function scrollToAdjacentPost(direction) {
@@ -67,6 +103,31 @@
     link.textContent = "Instagramで投稿を見る";
     embed.append(link);
     return embed;
+  }
+
+  function createPolaroidCaption(shortcode, tagName) {
+    const caption = document.createElement(tagName);
+    caption.className = "instagram-polaroid-caption";
+    const publishedOn = instagramPostDates[shortcode];
+    if (publishedOn) {
+      const time = document.createElement("time");
+      time.dateTime = publishedOn;
+      time.textContent = publishedOn.split("-").join(".");
+      caption.append(time);
+    } else {
+      caption.textContent = "R-524 · CAMERA";
+    }
+    return caption;
+  }
+
+  function createPolaroidFrame(shortcode) {
+    const frame = document.createElement("figure");
+    frame.className = "instagram-polaroid";
+    const viewport = document.createElement("div");
+    viewport.className = "instagram-photo";
+    const caption = createPolaroidCaption(shortcode, "figcaption");
+    frame.append(viewport, caption);
+    return { frame, viewport };
   }
 
   function waitForInstagramEmbeds(expectedCount, timeoutMs = 12000) {
@@ -120,27 +181,29 @@
     instagramStatus.textContent = "投稿を読み込んでいます。";
 
     try {
-      const embeds = selectedPosts.map(createInstagramPost);
-      instagramPosts.replaceChildren(...embeds);
+      const polaroids = selectedPosts.map((shortcode) => {
+        const polaroid = createPolaroidFrame(shortcode);
+        polaroid.viewport.append(createInstagramPost(shortcode));
+        return polaroid.frame;
+      });
+      instagramPosts.replaceChildren(...polaroids);
       await loadInstagramEmbedScript();
       window.instgrm.Embeds.process();
-      const renderedEmbeds = await waitForInstagramEmbeds(embeds.length);
-      renderedEmbeds.forEach((embed) => {
-        const frame = document.createElement("div");
-        frame.className = "instagram-photo";
-        embed.replaceWith(frame);
-        frame.append(embed);
-      });
+      await waitForInstagramEmbeds(polaroids.length);
       instagramStatus.textContent = "";
       requestAnimationFrame(updateScrollControls);
     } catch (error) {
       const fallbackLinks = selectedPosts.map((shortcode) => {
         const link = document.createElement("a");
-        link.className = "instagram-fallback";
+        link.className = "instagram-polaroid instagram-fallback";
         link.href = `https://www.instagram.com/p/${shortcode}/`;
         link.target = "_blank";
         link.rel = "noopener noreferrer";
-        link.textContent = "Instagramで投稿を見る ↗";
+        const preview = document.createElement("span");
+        preview.className = "instagram-fallback-image";
+        preview.textContent = "Instagramで投稿を見る ↗";
+        const caption = createPolaroidCaption(shortcode, "span");
+        link.append(preview, caption);
         return link;
       });
       instagramPosts.replaceChildren(...fallbackLinks);

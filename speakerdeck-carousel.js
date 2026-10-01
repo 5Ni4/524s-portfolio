@@ -8,11 +8,9 @@
   function updateScrollControls() {
     const hasOverflow = window.matchMedia("(max-width: 1060px)").matches
       && posts.scrollWidth > posts.clientWidth + 4;
-    const atStart = posts.scrollLeft <= 4;
-    const atEnd = posts.scrollLeft + posts.clientWidth >= posts.scrollWidth - 4;
     navigation.hidden = !hasOverflow;
-    previousButton.hidden = !hasOverflow || atStart;
-    nextButton.hidden = !hasOverflow || atEnd;
+    previousButton.hidden = !hasOverflow;
+    nextButton.hidden = !hasOverflow;
   }
 
   function scrollToAdjacentPost(direction) {
