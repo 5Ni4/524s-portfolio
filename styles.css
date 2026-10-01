@@ -792,6 +792,11 @@ html[data-design="colorful"] .site-nav a {
   position: relative;
   text-decoration: none;
 }
+/* Keep the animated underline inside the nav's vertical scrollport. */
+html[data-design="colorful"] .site-nav {
+  margin-bottom: -12px;
+  padding-bottom: 12px;
+}
 html[data-design="colorful"] .site-nav a::after {
   background: var(--yellow);
   bottom: -9px;
