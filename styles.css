@@ -159,11 +159,29 @@ a:focus-visible {
   position: absolute;
   right: calc(50% + 101px);
   top: 42px;
+  transform-origin: center;
+  transition: transform 220ms cubic-bezier(.2, .75, .25, 1);
   width: clamp(180px, 18vw, 310px);
   z-index: 3;
 }
-.hero-speech-bubble img { display: block; height: auto; width: 100%; }
+.hero-speech-bubble:hover,
+.hero-speech-bubble:focus-visible { transform: scale(1.08); }
+.hero-speech-bubble img {
+  animation: hero-bubble-wiggle 4.8s ease-in-out infinite;
+  display: block;
+  height: auto;
+  transform-origin: 68% 82%;
+  width: 100%;
+}
 .hero-speech-bubble:focus-visible { outline: 3px solid var(--navy); outline-offset: 4px; }
+@keyframes hero-bubble-wiggle {
+  0%, 78%, 100% { transform: rotate(0); }
+  82% { transform: rotate(-3deg); }
+  86% { transform: rotate(2.4deg); }
+  90% { transform: rotate(-1.7deg); }
+  94% { transform: rotate(1deg); }
+  97% { transform: rotate(0); }
+}
 .art-orbit { border: 1px solid var(--cyan-light); border-radius: 50%; position: absolute; }
 .orbit-one { height: 480px; right: 0; top: 8px; transform: rotate(32deg); width: 370px; }
 .orbit-two { border-color: var(--yellow-soft); height: 510px; left: 51px; top: 7px; transform: rotate(-29deg); width: 345px; }
@@ -1612,6 +1630,8 @@ html[data-design="simple"] .cursor-dot-layer { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cursor-dot-layer { display: none !important; }
+  .hero-speech-bubble { transition: none; }
+  .hero-speech-bubble img { animation: none; }
 }
 
 /* Sweep a colored underline beneath the profile links on hover or focus. */
