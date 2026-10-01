@@ -615,6 +615,11 @@ body { background: var(--paper); color: var(--ink); }
   position: relative;
   transform-origin: center 80%;
 }
+#goods .line-sticker-card .sticker-ogp:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 8px);
+}
 .sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
 @keyframes sticker-ogp-wobble {
   0%, 100% { transform: rotate(0deg) translateY(0); }
