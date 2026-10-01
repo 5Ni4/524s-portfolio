@@ -2151,15 +2151,13 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
   transform: translateY(-3px);
 }
 .zenn-article:focus-visible { outline: 3px solid var(--navy); outline-offset: 4px; }
-.zenn-article-top,
-.zenn-article-footer {
+.zenn-article-top {
   align-items: center;
   display: flex;
   justify-content: space-between;
 }
 .zenn-article-emoji { font-size: 28px; line-height: 1; }
-.zenn-article-date,
-.zenn-article-footer {
+.zenn-article-date {
   color: var(--navy-soft);
   font-family: var(--mono);
   font-size: 11px;
@@ -2170,9 +2168,8 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
   font-weight: 700;
   line-height: 1.5;
 }
-.zenn-article-footer {
+.zenn-article-divider {
   border-top: 1px solid var(--line);
-  padding-top: 12px;
 }
 html[data-design="colorful"] .zenn-article {
   background: var(--cream);
