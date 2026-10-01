@@ -606,7 +606,7 @@ body { background: var(--paper); color: var(--ink); }
 .sticker-ogps {
   display: grid;
   gap: 16px;
-  grid-template-columns: repeat(2, minmax(0, 180px));
+  grid-template-columns: repeat(3, minmax(0, 180px));
 }
 .sticker-ogp {
   display: flex;
@@ -614,11 +614,6 @@ body { background: var(--paper); color: var(--ink); }
   pointer-events: auto;
   position: relative;
   transform-origin: center 80%;
-}
-#goods .line-sticker-card .sticker-ogp:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  width: calc(50% - 8px);
 }
 .sticker-ogp img { aspect-ratio: 1; display: block; object-fit: cover; width: 100%; }
 @keyframes sticker-ogp-wobble {
@@ -688,7 +683,7 @@ body { background: var(--paper); color: var(--ink); }
   .work-card h3 { font-size: 1.75rem; }
   .card-description { font-size: 13px; }
   .sticker-ogps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     max-width: 376px;
     padding-top: 20px;
   }
@@ -1561,7 +1556,7 @@ html[data-design="colorful"] #hobby .hobby-clear-file-card {
 @media (min-width: 761px) {
   #goods .line-sticker-card .sticker-ogps {
     gap: 16px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
     margin-inline: auto;
     max-width: 440px;
