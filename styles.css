@@ -2115,3 +2115,83 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
     width: clamp(19px, 6vw, 23px);
   }
 }
+
+.zenn-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.zenn-article {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 5px 14px rgba(16, 45, 60, 0.1);
+  color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  min-height: 190px;
+  padding: 20px;
+  position: relative;
+  text-decoration: none;
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+.zenn-article::before {
+  background: var(--cyan);
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.zenn-article:hover {
+  box-shadow: 0 9px 20px rgba(16, 45, 60, 0.16);
+  transform: translateY(-3px);
+}
+.zenn-article:focus-visible { outline: 3px solid var(--navy); outline-offset: 4px; }
+.zenn-article-top,
+.zenn-article-footer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.zenn-article-emoji { font-size: 28px; line-height: 1; }
+.zenn-article-date,
+.zenn-article-footer {
+  color: var(--navy-soft);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.zenn-article-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.zenn-article-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+html[data-design="colorful"] .zenn-article {
+  background: var(--cream);
+  border: 2px solid var(--navy);
+  border-bottom-width: 4px;
+  box-shadow: 3px 3px 0 rgba(16, 45, 60, 0.35);
+}
+html[data-design="colorful"] .zenn-article::before { background: var(--yellow); }
+html[data-design="colorful"] .zenn-article:hover {
+  box-shadow: 5px 5px 0 rgba(16, 45, 60, 0.45);
+  transform: translateY(-2px);
+}
+@media (max-width: 900px) {
+  .zenn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .zenn-grid { grid-template-columns: minmax(0, 1fr); }
+  .zenn-article { min-height: 160px; padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zenn-article { transition: none; }
+}
