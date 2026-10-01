@@ -2120,7 +2120,7 @@ html[data-design="simple"] #speakerdeck .speakerdeck-card:hover {
   display: grid;
   gap: 16px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: 32px;
+  margin-top: 16px;
 }
 .zenn-article {
   background: var(--paper);
