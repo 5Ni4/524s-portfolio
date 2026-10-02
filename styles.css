@@ -1678,6 +1678,21 @@ html[data-design="colorful"] .hero-social:focus-visible::before {
   transform-origin: left center;
 }
 
+/* Give the header labels a little more presence. */
+.brand-mark { font-size: 18px; }
+.site-nav a { font-size: 16px; }
+.design-toggle { font-size: 15px; }
+
+@media (max-width: 760px) {
+  .brand-mark { font-size: 15px; }
+  .site-nav a { font-size: 13px; }
+  .design-toggle { font-size: 14px; }
+}
+
+@media (max-width: 420px) {
+  .site-nav a { font-size: 12px; }
+}
+
 /* Sweep a theme-colored band through the R-524 letterforms only. */
 .hero h1 {
   isolation: isolate;
