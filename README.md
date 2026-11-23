@@ -20,3 +20,9 @@ python3 -m http.server 4174
 ```
 
 Then open <http://127.0.0.1:4174/>.
+
+### Cloudflare Workers 用のビルド
+
+`sh scripts/build-portfolio.sh` で `dist/` を作成します。
+Cloudflare の設定先は Worker `portfolio` です。リリースする前に
+`wrangler versions upload` で確認用 URL を作り、既存ページと画像が残っていることを確認してから、そのバージョンを本番に反映します。
