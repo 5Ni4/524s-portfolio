@@ -37,6 +37,7 @@ jobs:
           reject refs/heads/preview "$current" "$current"
           reject refs/tags/main "$current" "$current"
           reject refs/heads/main "$current" ""
+          reject refs/heads/main "$(printf '%.7s' "$current")" "$current"
       - name: Build and verify release files (no deployment)
         run: |
           set -eu
